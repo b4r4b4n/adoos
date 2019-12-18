@@ -8,11 +8,11 @@ from flask_mail import Mail
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from flask_babel import Babel, lazy_gettext as _l
-from elasticsearch import Elasticsearch
 from redis import Redis
-import rq
+import psycopg2
 from config import Config
 
+db = psycopg2()
 migrate = Migrate()
 login = LoginManager()
 login.login_view = 'auth.login'
