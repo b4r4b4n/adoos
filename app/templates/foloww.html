@@ -1,0 +1,28 @@
+<table class="table table-hover">
+        {% if friendempty == True %}
+            <p>{{ _('У пользователя еще нет фолловеров, будьте первым') }} <br> <a href="{{ url_for('main.follow', id=idfoll) }}">{{ _('Follow') }}</a></p>
+        {% endif %}
+        {% for frend in frendi %}
+        <tr>
+            <td width="100px">
+                <a href="{{ url_for('main.user', login = frend[8]) }}">
+                    <img src="{{ frend[11] }}" width="100" height="100"/>
+                </a>
+            </td>
+            <td width="100">
+                {% set user_link %}
+                    <span class="user_popup">
+                        <a href="{{ url_for('main.user', login=frend[8]) }}">
+                            {{ frend[3] }}
+                        </a>
+                    </span>
+                {% endset %}
+            </td>
+        </tr>
+            <th width="100" align="center">
+                    {{ _('%(username)s',
+                    username=user_link) }}
+                <br/>
+            </th>
+        {% endfor %}
+    </table>
