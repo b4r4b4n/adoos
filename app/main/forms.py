@@ -4,11 +4,9 @@ from wtforms import StringField, SubmitField, TextAreaField, RadioField, SelectF
 from wtforms.validators import ValidationError, DataRequired, Length
 from flask_babel import _, lazy_gettext as _l
 from app.models import User
-import psycopg2
+from app.dbconn import conn
 
-conn = psycopg2.connect(dbname='postgres', user='postgres',
-                        password='bibaboba', host='localhost',
-                        port='5432')
+conn = conn()
 
 
 class EditProfileForm(FlaskForm):

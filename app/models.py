@@ -11,11 +11,9 @@ import jwt
 import redis
 import rq
 from app import login
-import psycopg2
+from app.dbconn import conn
 
-conn = psycopg2.connect(dbname='postgres', user='postgres',
-                        password='bibaboba', host='localhost',
-                        port='5432')
+conn = conn()
 
 
 class User(UserMixin):

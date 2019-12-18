@@ -9,11 +9,9 @@ from app.main.forms import EditProfileForm, PostForm, ComForm, EditPostForm, Edi
 from app.models import User, Post
 from app.main import bp
 from datetime import datetime
-import psycopg2
+from app.dbconn import conn
 
-conn = psycopg2.connect(dbname='postgres', user='postgres',
-                        password='bibaboba', host='localhost',
-                        port='5432')
+conn = conn()
 
 
 @bp.route('/', methods=['GET', 'POST'])

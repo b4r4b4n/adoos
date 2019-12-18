@@ -3,11 +3,9 @@ from wtforms import StringField, PasswordField, BooleanField, SubmitField, DateF
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
 from flask_babel import _, lazy_gettext as _l
 from app.models import User
-import psycopg2
+from app.dbconn import conn
 
-conn = psycopg2.connect(dbname='postgres', user='postgres',
-                        password='bibaboba', host='localhost',
-                        port='5432')
+conn = conn()
 
 
 class LoginForm(FlaskForm):

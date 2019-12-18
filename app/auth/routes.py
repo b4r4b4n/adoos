@@ -8,11 +8,9 @@ from app.auth.forms import LoginForm, RegistrationForm, \
     ResetPasswordRequestForm, ResetPasswordForm
 from app.models import load_user
 from app.auth.email import send_password_reset_email
-import psycopg2
+from app.dbconn import conn
 
-conn = psycopg2.connect(dbname='postgres', user='postgres',
-                        password='bibaboba', host='localhost',
-                        port='5432')
+conn = conn()
 
 
 @bp.route('/login', methods=['GET', 'POST'])
