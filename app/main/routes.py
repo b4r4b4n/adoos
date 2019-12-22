@@ -96,7 +96,7 @@ def user(id):
     following = int(following[0])
     form = PostForm()
     if form.validate_on_submit():
-        vremya = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        vremya = datetime.now().strftime("%Y-%m-%d %X")
         if id == current_user.id:
             cursor.execute('INSERT INTO post(tekst,datapost,idavtor,idrecepient) VALUES (%s,%s,%s,%s)',
                            [form.post.data,vremya,current_user.id,current_user.id])
