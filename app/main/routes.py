@@ -1,13 +1,10 @@
-from datetime import datetime
-from hashlib import md5
-from flask import render_template, flash, redirect, url_for, request, g, \
-    jsonify, current_app
+from flask import render_template, flash, redirect, url_for, request
 from flask_login import current_user, login_required
-from flask_babel import _, get_locale
-from guess_language import guess_language
+from flask_babel import _
 from app.main.forms import EditProfileForm, PostForm, ComForm, EditPostForm, EditCom
 from app.models import User, Post
 from app.main import bp
+from flask_paginate import Pagination, get_page_args
 from datetime import datetime
 from app.dbconn import conn
 
@@ -23,7 +20,6 @@ def index():
         conn.commit()
         flash(_('Your post is now live!'))
         return redirect(url_for('main.index'))
-    page = request.args.get('page', 1, type=int)
     return render_template('index.html', title=_('Home'), form=form)
 
 
@@ -77,15 +73,14 @@ def edit_com(id):
     return render_template('edit_post.html', title=_('Редактирование') ,form=form)
 
 
-@bp.route('/user/<login>', methods=['GET', 'POST'])
+@bp.route('/user/id<id>', methods=['GET', 'POST'])
 @login_required
-def user(login):
+def user(id):
     cursor = conn.cursor()
-    cursor.execute('select * from Uzer where login = %s',
-                   [login])
+    cursor.execute('select * from Uzer where iduser = %s',
+                   [id])
     user = cursor.fetchone()
     if user is None:
-        flash(_('User %(username)s not found.', username=login))
         return redirect(url_for('main.index'))
     if current_user.id != user[4]:
         cursor.execute('select * from addfriend where id2user = %s and id1user = %s',
@@ -120,12 +115,19 @@ def user(login):
         [user[4]])
     posts = cursor.fetchall()
     cursor.execute(
-        'SELECT * FROM POST inner join com on post.idpost=com.idpost inner join uzer on uzer.iduser = com.idavtor WHERE post.idrecepient = %s order by datapost DESC',
+        'SELECT * FROM POST inner join com on post.idpost=com.idpost inner join uzer on uzer.iduser = com.idavtor WHERE post.idrecepient = %s order by datacom ASC',
         [user[4]])
     coms = cursor.fetchall()
-    page = request.args.get('page', 1, type=int)
+    page, per_page, offset = get_page_args(page_parameter='page',
+                                           per_page_parameter='per_page')
+    cursor.execute(
+        'SELECT count(*) FROM POST WHERE idrecepient = %s',
+        [user[4]])
+    total = cursor.fetchone()
+    pagination_posts = posts[offset: offset + per_page]
+    pagination = Pagination(page=page, total=total[0], record_name='posts', css_framework='bootstrap4', per_page=10)
     return render_template('user.html', form=form, user=user, fio=user[0], logen=user[5], about_me=user[7], followed=followed,
-                           following=following, followers=followers, posts=posts, avatar=user[8], coms=coms, id=user[4])
+                           following=following, followers=followers, posts=pagination_posts, avatar=user[8], coms=coms, id=user[4], pagination=pagination)
 
 
 @bp.route('/user/<login>/popup')
@@ -146,6 +148,15 @@ def user_popup(login):
             followed = False
         else:
             followed = True
+    cursor.execute('select * from vo where iduser = %s',
+                   [user[4]])
+    vo = cursor.fetchone()
+    if vo is not None:
+        cursor.execute(
+            'SELECT * FROM vo natural join kafedra natural join facultet natural join vuz where iduser = %s', [user[4]])
+        vishobr = cursor.fetchone()
+    else:
+        return redirect(url_for('main.user', login=user[5]))
     cursor.execute('select count(*) from addfriend where id1user = %s',
                    [user[4]])
     followers = cursor.fetchone()
@@ -155,8 +166,8 @@ def user_popup(login):
     following = cursor.fetchone()
     following = int(following[0])
     return render_template('user_popup.html', user=user, fio=user[0], logen=user[5], about_me=user[7], followed=followed,
-                           following=following, followers=followers, avatar=user[8], phone = user[1], gender = user[2],
-                           dr=user[3])
+                           following=following, followers=followers, avatar=user[8], phone=user[1], gender=user[2],
+                           dr=user[3], vuz=vishobr[9], kafedra=vishobr[7], facultet=vishobr[8], iduser=user[4])
 
 
 @bp.route('/edit_profile', methods=['GET', 'POST'])
@@ -248,13 +259,13 @@ def unfollow(id):
         return redirect(url_for('main.index'))
     if user == current_user:
         flash(_('You cannot unfollow yourself!'))
-        return redirect(url_for('main.user', login=user[5]))
+        return redirect(url_for('main.user', id=user[4]))
     cursor.execute(
         'DELETE FROM addfriend WHERE id2user = %s and id1user = %s',
         [current_user.id,user[4]])
     conn.commit()
     flash(_('You are not following %(username)s.', username=user[5]))
-    return redirect(url_for('main.user', login=user[5]))
+    return redirect(url_for('main.user', id=user[4]))
 
 
 @bp.route('/deletepost/<id>')
@@ -268,10 +279,6 @@ def deletepost(id):
         'SELECT idrecepient from post where (idavtor = %s and idpost = %s) or (idrecepient = %s and idpost = %s)',
         [current_user.id, id, current_user.id, id])
     biba = cursor.fetchone()
-    cursor.execute(
-        'SELECT login from uzer where iduser = %s',
-        [biba])
-    bibas = cursor.fetchone()
     cursor.execute(
         'SELECT * from com where idpost = %s',
         [id])
@@ -290,8 +297,8 @@ def deletepost(id):
                 [current_user.id, id, current_user.id, id])
             conn.commit()
             cursor.close()
-        return redirect(url_for('main.user', login=bibas[0]))
-    return redirect(url_for('main.user', login=bibas[0]))
+        return redirect(url_for('main.user', id=biba[0]))
+    return redirect(url_for('main.user', id=biba[0]))
 
 
 @bp.route('/comment/<id>', methods=['GET', 'POST'])
@@ -348,6 +355,9 @@ def deletecom(id):
 @login_required
 def folowww(id):
     cursor = conn.cursor()
+    cursor.execute('select * from Uzer where iduser = %s',
+                   [id])
+    user = cursor.fetchone()
     cursor.execute(
         'SELECT * FROM addfriend inner join uzer on addfriend.id1user=uzer.iduser and addfriend.id2user = %s',
         [id])
@@ -356,13 +366,17 @@ def folowww(id):
     if len(frendi) == 0:
         friendempty = True
     idfoll = id
-    return render_template('unfoloww.html', title=_('Пiдписки'), frendi=frendi, friendempty=friendempty, idfoll=idfoll)
+    return render_template('unfoloww.html', title=_('Пiдписки'), frendi=frendi, friendempty=friendempty, idfoll=idfoll,
+                           login=user[5])
 
 
 @bp.route('/followers/<id>', methods=['GET', 'POST'])
 @login_required
 def foloww(id):
     cursor = conn.cursor()
+    cursor.execute('select * from Uzer where iduser = %s',
+                   [id])
+    user = cursor.fetchone()
     cursor.execute(
         'SELECT * FROM addfriend inner join uzer on addfriend.id2user=uzer.iduser and addfriend.id1user = %s',
         [id])
@@ -371,4 +385,5 @@ def foloww(id):
     if len(frendi) == 0:
         friendempty = True
     idfoll = id
-    return render_template('foloww.html', title=_('Пiдписники'), frendi=frendi, friendempty=friendempty, idfoll=idfoll)
+    return render_template('foloww.html', title=_('Пiдписники'), frendi=frendi, friendempty=friendempty, idfoll=idfoll,
+                           login=user[5])

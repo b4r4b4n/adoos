@@ -54,13 +54,12 @@ def load_user(iduser):
 class Post():
     __searchable__ = ['body']
 
-    def __init__(self, tekst, datapost, idpost, idavtora, idrecepient, loginavtora):
+    def __init__(self, tekst, datapost, idpost, idavtora, idrecepient):
         self.tekst = tekst
         self.datapost = datapost
         self.idpost = idpost
         self.idavtora = idavtora
         self.idrecepient = idrecepient
-        self.loginavtora = loginavtora
 
     def __repr__(self):
         return '<Post {}>'.format(self.body)

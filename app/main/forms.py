@@ -16,7 +16,43 @@ class EditProfileForm(FlaskForm):
                              validators=[Length(min=0, max=140)])
     phone = StringField('Номер')
     avatar = StringField('Аватар')
-    gender = RadioField('Пол', choices=[('М', 'Мужчина'), ('Ж', 'Женщина')])
+    gender = SelectField('Пол', choices=[('Мale', 'Male'),
+                                         ('Female', 'Female'),
+                                         ('Transexual Male', 'Transexsual Male'),
+                                         (' Transexsual Female', 'Transexsual Female'),
+                                         ('Metrosexual Male', 'Metrosexual Male'),
+                                         ('Metrosexual Female', 'Metrosexual Female'),
+                                         ('Male, but curious what being a Female like',
+                                          'Male, but curious what being a Female like'),
+                                         ('Female, but curious what being a Male like',
+                                          'Female, but curious what being a Male like'),
+                                         ('Hermaphrodite with Predominant Male leanings',
+                                          'Hermaphrodite with Predominant Male leanings'),
+                                         ('Hermaphrodite with Predominant Female leanings',
+                                          'Hermaphrodite with Predominant Female leanings'),
+                                         ('Hermaphrodite with no strong gender leanings',
+                                          'Hermaphrodite with no strong gender leanings'),
+                                         ('Conjoined Twin - Male', 'Conjoined Twin - Male'),
+                                         ('Conjoined Twin - Female', 'Conjoined Twin - Female'),
+                                         ('Born without genitals - identify as a Male',
+                                          'Born without genitals - identify as a Male'),
+                                         ('Born without genitals - identify as a Female',
+                                          'Born without genitals - identify as a Female'),
+                                         ('Born without genitals - proud of it', 'Born without genitals - proud of it'),
+                                         ('Artificial intelligence with no gender',
+                                          'Artificial intelligence with no gender'),
+                                         ('Artificial intelligence - identifies as Male',
+                                          'Artificial intelligence -identifies as Male'),
+                                         ('Artificial intelligence - identifies as Female',
+                                          'Artificial intelligence -identifies as Female'),
+                                         ('Household pet that walked across the keyboard - Male',
+                                          'Household pet that walked across the keyboard - Male'),
+                                         ('Household pet that walked across the keyboard - Female',
+                                          'Household pet that walked across the keyboard - Female'),
+                                         ('Household pet that walked across the keyboard - Other',
+                                          'Household pet that walked across the keyboard - Other'),
+                                         ('Attack helicopter', 'Attack helicopter')
+                                         ])
     cursor = conn.cursor()
     cursor.execute('select idvuz,namevuz from vuz order by idvuz asc')
     VUZ = cursor.fetchall()
