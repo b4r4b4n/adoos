@@ -1,0 +1,43 @@
+{{ moment.include_moment() }}
+{{ moment.include_jquery() }}
+{{ moment.lang("ru") }}
+    <table class="table table-hover">
+        <tr>
+            <td width="70px">
+                <a href="{{ url_for('main.user', id = post[9]) }}">
+                    <img src="{{ post[13] }}" width="58" height="58"/>
+                </a>
+            </td>
+            <td >
+                {% set user_link %}
+                    <span class="user_popup">
+                        <a href="{{ url_for('main.user', id=post[9]) }}">
+                            {{ post[5] }}
+                        </a>
+                    </span>
+                {% endset %}
+                {{ _('%(username)s сказал',
+                    username=user_link) }}
+                <br>
+                <span id="post{{ post[2] }}">{{ post[0] }}</span>
+                <br>
+                <p>{{ _('%(when)s', when=moment(post[1], local=True).fromNow())  }}
+                {% if post[10] == current_user.login or current_user.login == logen %}
+                    <a href="{{ url_for('main.deletepost', id=post[2]) }}">{{ _('Удалить') }}</a>
+                    {% if post[10] == current_user.login %}
+                    <span>{{ '   ' }}</span><a href="{{ url_for('main.edit_post', id=post[2]) }}">{{ _('Редактировать') }}</a>
+                    {% endif %}
+                {% endif %}
+                <span>{{ '   ' }}</span><a href="{{ url_for('main.comment', id=post[2]) }}">{{ _('Комментировать') }}</a></p>
+            </td>
+        </tr>
+        <th>
+            <th style="font-weight:normal">
+                {% for com in coms %}
+                    {% if com[2] == post[2] %}
+                    {% include '_com.html' %}
+                    {% endif %}
+                {% endfor %}
+            </th>
+        </th>
+    </table>

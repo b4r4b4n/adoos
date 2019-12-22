@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+<table class="table table-hover">
+        {% if friendempty == True %}
+            <p>{{ _('Пользователь еще ни на кого не подписан') }}  <br> <a href="{{ url_for('main.user', id=id) }}">{{ _('Вернуться') }}</a> </p>
+        {% endif %}
+        <tr>
+            {% for frend in frendi %}
+            <td width="100px">
+                <a href="{{ url_for('main.user', id = frend[7]) }}">
+                    <img src="{{ frend[11] }}" width="100" height="100"/>
+                </a>
+            </td>
+            <td width="100">
+                {% set user_link %}
+                    <span class="user_popup">
+                        <a href="{{ url_for('main.user', id=frend[7]) }}">
+                            {{ frend[3] }}
+                        </a>
+                    </span>
+                {% endset %}
+            </td>
+        </tr>
+        <tr>
+            <td width="100">
+                    {{ _('%(username)s',
+                    username=user_link) }}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>

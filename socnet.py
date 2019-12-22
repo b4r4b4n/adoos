@@ -1,12 +1,4 @@
-from flask import Flask
+from app import create_app, cli
 
-app = Flask(__name__)
-
-
-@app.route('/')
-def index():
-    return 'OK!'
-
-
-if __name__=="__main__":
-    app.run()
+app = create_app()
+cli.register(app)
