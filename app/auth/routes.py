@@ -27,14 +27,14 @@ def login():
             return redirect(url_for('auth.login'))
         user = load_user(user[2])
         login_user(user, remember=form.remember_me.data, force=True)
-        return redirect('index')
+        return redirect('main.user', id=current_user.id)
     return render_template('auth/login.html', title=_('Sign In'), form=form)
 
 
 @bp.route('/logout')
 def logout():
     logout_user()
-    return redirect(url_for('main.index'))
+    return redirect(url_for('login'))
 
 
 @bp.route('/register', methods=['GET', 'POST'])
