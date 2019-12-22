@@ -9,9 +9,7 @@ from flask_moment import Moment
 from flask_babel import Babel, lazy_gettext as _l
 from redis import Redis
 from config import Config
-from app.dbconn import conn
 
-db = conn()
 login = LoginManager()
 login.login_view = 'auth.login'
 login.login_message = _l('Please log in to access this page.')
