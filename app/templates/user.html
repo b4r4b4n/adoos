@@ -4,7 +4,7 @@
     {{ pagination.links }}
     <table class="table table-hover">
         <tr>
-            <td width="200"><a href="{{ url_for('main.user_popup', login = logen) }}"><img src="{{ avatar }}" width="200" height="200"></a></td>
+            <td width="200"><a href="{{ url_for('main.user_popup', id = id) }}"><img src="{{ avatar }}" width="200" height="200"></a></td>
             <td>
                 <h1>{{ fio }}</h1>
                 {% if about_me %}<p>{{ about_me }}</p>{% endif %}

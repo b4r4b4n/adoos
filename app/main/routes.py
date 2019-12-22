@@ -134,16 +134,16 @@ def user(id):
                            following=following, followers=followers, posts=pagination_posts, avatar=user[8], coms=coms, id=user[4], pagination=pagination)
 
 
-@bp.route('/user/<login>/popup')
+@bp.route('/user/id<id>/popup')
 @login_required
-def user_popup(login):
+def user_popup(id):
     cursor = conn.cursor()
-    cursor.execute('select * from Uzer where login = %s',
-                   [login])
+    cursor.execute('select * from Uzer where id = %s',
+                   [id])
     user = cursor.fetchone()
     conn.commit()
     if user is None:
-        flash(_('User %(username)s not found.', username=login))
+        flash(_('User %(username)s not found.', username=user[5]))
         return redirect(url_for('main.index'))
     if current_user.id != user[4]:
         cursor.execute('select * from addfriend where id2user = %s and id1user = %s',
