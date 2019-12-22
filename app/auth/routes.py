@@ -27,7 +27,7 @@ def login():
             return redirect(url_for('auth.login'))
         user = load_user(user[2])
         login_user(user, remember=form.remember_me.data, force=True)
-        return redirect('main.user', id=current_user.id)
+        return redirect(url_for('main.user', id=current_user.id))
     return render_template('auth/login.html', title=_('Sign In'), form=form)
 
 
