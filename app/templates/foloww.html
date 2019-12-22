@@ -4,7 +4,7 @@
             <p>{{ _('У пользователя еще нет фолловеров, будьте первым') }} <br> <a href="{{ url_for('main.follow', id=idfoll) }}">{{ _('Follow') }}</a></p>
         {% endif %}
         {% if friendempty == True and current_user.login == login %}
-            <p>{{ _('У вас нет друзей') }} <br> <a href="{{ url_for('main.user', login=login) }}">{{ _('Вернуться') }}</a> </p>
+            <p>{{ _('У вас нет друзей') }} <br> <a href="{{ url_for('main.user', id=id) }}">{{ _('Вернуться') }}</a> </p>
         {% endif %}
         {% for frend in frendi %}
         <tr>

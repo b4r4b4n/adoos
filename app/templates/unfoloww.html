@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
 <table class="table table-hover">
         {% if friendempty == True %}
-            <p>{{ _('Пользователь еще ни на кого не подписан') }}  <br> <a href="{{ url_for('main.user', login=login) }}">{{ _('Вернуться') }}</a> </p>
+            <p>{{ _('Пользователь еще ни на кого не подписан') }}  <br> <a href="{{ url_for('main.user', id=id) }}">{{ _('Вернуться') }}</a> </p>
         {% endif %}
         <tr>
             {% for frend in frendi %}

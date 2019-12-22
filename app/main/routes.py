@@ -358,7 +358,7 @@ def folowww(id):
         friendempty = True
     idfoll = id
     return render_template('unfoloww.html', title=_('Пiдписки'), frendi=frendi, friendempty=friendempty, idfoll=idfoll,
-                           login=user[5])
+                           login=user[5], id=user[4])
 
 
 @bp.route('/followers/<id>', methods=['GET', 'POST'])
@@ -377,4 +377,4 @@ def foloww(id):
         friendempty = True
     idfoll = id
     return render_template('foloww.html', title=_('Пiдписники'), frendi=frendi, friendempty=friendempty, idfoll=idfoll,
-                           login=user[5])
+                           login=user[5], id=user[4])
