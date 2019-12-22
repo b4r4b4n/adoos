@@ -16,6 +16,7 @@ conn = psycopg2.connect(dbname='postgres', user='postgres',
                         port='5432')
 
 
+
 @bp.route('/', methods=['GET', 'POST'])
 @bp.route('/index', methods=['GET', 'POST'])
 @login_required
