@@ -1,10 +1,12 @@
-from app import create_app, cli, db
-from app.models import User, Post
+from flask import Flask
 
-app = create_app()
-cli.register(app)
+app = Flask(__name__)
 
 
-@app.shell_context_processor
-def make_shell_context():
-    return {'db': db, 'User': User, 'Post': Post}
+@app.route('/')
+def index():
+    return 'OK!'
+
+
+if __name__=="__main__":
+    app.run()
