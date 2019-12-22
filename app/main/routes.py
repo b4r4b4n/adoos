@@ -163,7 +163,7 @@ def user_popup(login):
     following = int(following[0])
     return render_template('user_popup.html', user=user, fio=user[0], logen=user[5], about_me=user[7], followed=followed,
                            following=following, followers=followers, avatar=user[8], phone=user[1], gender=user[2],
-                           dr=user[3], vuz=vishobr[9], kafedra=vishobr[7], facultet=vishobr[8], iduser=user[4])
+                           dr=user[3], vuz=vishobr[8], kafedra=vishobr[6], facultet=vishobr[7], iduser=user[4])
 
 
 @bp.route('/edit_profile', methods=['GET', 'POST'])
