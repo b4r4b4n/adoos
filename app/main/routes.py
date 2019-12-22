@@ -138,7 +138,7 @@ def user(id):
 @login_required
 def user_popup(id):
     cursor = conn.cursor()
-    cursor.execute('select * from Uzer where id = %s',
+    cursor.execute('select * from Uzer where iduser = %s',
                    [id])
     user = cursor.fetchone()
     conn.commit()
