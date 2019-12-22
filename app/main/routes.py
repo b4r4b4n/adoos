@@ -147,22 +147,25 @@ def user_popup(id):
         return redirect(url_for('main.index'))
     if current_user.id != user[4]:
         cursor.execute('select * from addfriend where id2user = %s and id1user = %s',
-                       [current_user.id,user[4]])
+                       [current_user.id,id])
         frend = cursor.fetchone()
         conn.commit()
         if frend is None:
             followed = False
         else:
             followed = True
-    cursor.execute('select * from vo where iduser = %s',
-                   [id])
-    vo = cursor.fetchone()
+    cursor.execute(
+        'SELECT * FROM vo natural join kafedra natural join facultet natural join vuz where iduser = %s', [id])
+    vishobr = cursor.fetchone()
     conn.commit()
-    if vo is not None:
-        cursor.execute(
-            'SELECT * FROM vo natural join kafedra natural join facultet natural join vuz where iduser = %s', [user[4]])
-        vishobr = cursor.fetchone()
-        conn.commit()
+    if vishobr is not None:
+        kafedra = vishobr[6]
+        facultet = vishobr[7]
+        vuz = vishobr[8]
+    else:
+        kafedra = None
+        facultet = None
+        vuz = None
     cursor.execute('select count(*) from addfriend where id1user = %s',
                    [id])
     followers = cursor.fetchone()
@@ -174,7 +177,7 @@ def user_popup(id):
     conn.commit()
     return render_template('user_popup.html', user=user, fio=user[0], logen=user[5], about_me=user[7], followed=followed,
                            following=following, followers=followers, avatar=user[8], phone=user[1], gender=user[2],
-                           dr=user[3], vuz=vishobr[8], kafedra=vishobr[6], facultet=vishobr[7], iduser=user[4])
+                           dr=user[3], vuz=vuz, kafedra=kafedra, facultet=facultet, iduser=user[4])
 
 
 @bp.route('/edit_profile', methods=['GET', 'POST'])
