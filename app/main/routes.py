@@ -33,16 +33,14 @@ def edit_post(id):
     user = cursor.fetchone()
     cursor.execute('SELECT * FROM POST WHERE idpost = %s', [id])
     text = cursor.fetchone()
-    cursor.execute('SELECT login FROM uzer WHERE iduser = %s', [text[4]])
-    bib = cursor.fetchone()
-    vremya = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    #vremya = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     if form.validate_on_submit():
         if user is None:
-            return redirect(url_for('main.user', login=user[5]))
+            return redirect(url_for('main.user', id=user[4]))
         else:
-            cursor.execute('UPDATE POST SET tekst = %s, datapost =%s WHERE idpost = %s', [form.editpost.data, vremya, id])
+            cursor.execute('UPDATE POST SET tekst = %s WHERE idpost = %s', [form.editpost.data, id])
             conn.commit()
-            return redirect(url_for('main.user', login=bib[0]))
+            return redirect(url_for('main.user', id=text[4]))
     elif request.method == 'GET':
         form.editpost.data = text[0]
     return render_template('edit_post.html', title=_('Редактирование') ,form=form)
@@ -58,16 +56,14 @@ def edit_com(id):
     user = cursor.fetchone()
     cursor.execute('SELECT * FROM com WHERE idcom = %s', [id])
     text = cursor.fetchone()
-    cursor.execute('SELECT login FROM uzer WHERE iduser = %s', [text[3]])
-    bib = cursor.fetchone()
-    vremya = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    #vremya = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     if form.validate_on_submit():
         if user is None:
-            return redirect(url_for('main.user', login=user[5]))
+            return redirect(url_for('main.user', id=user[4]))
         else:
-            cursor.execute('UPDATE COM SET tekst = %s, datacom =%s WHERE idcom = %s', [form.editcom.data, vremya, id])
+            cursor.execute('UPDATE COM SET tekst = %s WHERE idcom = %s', [form.editcom.data,  id])
             conn.commit()
-            return redirect(url_for('main.user', login=bib[0]))
+            return redirect(url_for('main.user', id=text[5]))
     elif request.method == 'GET':
         form.editcom.data = text[0]
     return render_template('edit_post.html', title=_('Редактирование') ,form=form)
@@ -101,7 +97,7 @@ def user(id):
     form = PostForm()
     if form.validate_on_submit():
         vremya = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        if login == current_user.login:
+        if id == current_user.id:
             cursor.execute('INSERT INTO post(tekst,datapost,idavtor,idrecepient) VALUES (%s,%s,%s,%s)',
                            [form.post.data,vremya,current_user.id,current_user.id])
             conn.commit()
@@ -109,7 +105,7 @@ def user(id):
             cursor.execute('INSERT INTO post(tekst,datapost,idavtor,idrecepient) VALUES (%s,%s,%s,%s)',
                            [form.post.data, vremya, current_user.id, user[4]])
             conn.commit()
-        return redirect(url_for('main.user', login=user[5]))
+        return redirect(url_for('main.user', id=user[4]))
     cursor.execute(
         'SELECT * FROM POST inner join uzer on uzer.iduser = post.idavtor WHERE idrecepient = %s order by datapost DESC',
         [user[4]])
@@ -156,7 +152,7 @@ def user_popup(login):
             'SELECT * FROM vo natural join kafedra natural join facultet natural join vuz where iduser = %s', [user[4]])
         vishobr = cursor.fetchone()
     else:
-        return redirect(url_for('main.user', login=user[5]))
+        return redirect(url_for('main.user', id=user[4]))
     cursor.execute('select count(*) from addfriend where id1user = %s',
                    [user[4]])
     followers = cursor.fetchone()
@@ -230,21 +226,20 @@ def follow(id):
     cursor.execute('select * from Uzer where iduser = %s',
                    [id])
     user = cursor.fetchone()
-    logen = user[5]
     if user is None:
-        flash(_('User %(username)s not found.', username=logen))
+        flash(_('User %(username)s not found.', username=user[5]))
         return redirect(url_for('main.index'))
     if current_user.login == user[5]:
         flash(_('You cannot unfollow yourself!'))
-        return redirect(url_for('main.user', login=logen))
+        return redirect(url_for('main.user', id=user[4]))
     cursor = conn.cursor()
     cursor.execute(
         'insert into addfriend (dataadd,id1user,id2user) values(clock_timestamp(),%s,%s)',
         (user[4], current_user.id))
     cursor.close()
     conn.commit()
-    flash(_('You are following %(username)s!', username=logen))
-    return redirect(url_for('main.user', login=logen))
+    flash(_('You are following %(username)s!', username=user[5]))
+    return redirect(url_for('main.user', id=user[4]))
 
 
 @bp.route('/unfollow/<id>')
@@ -323,7 +318,7 @@ def comment(id):
             cursor.execute('INSERT INTO com(tekst,datacom,idavtor,idpost,idrecepient) VALUES (%s,%s,%s,%s,%s)',
                            [forma.com.data, vremy, current_user.id, id, ust[4]])
             conn.commit()
-        return redirect(url_for('main.user', login=ust[5]))
+        return redirect(url_for('main.user', id=ust[4]))
     return render_template('sendcom.html', forma=forma)
 
 @bp.route('/deletecom/<id>')
@@ -337,18 +332,14 @@ def deletecom(id):
         'SELECT idrecepient from com where (idavtor = %s and idcom = %s) or (idrecepient = %s and idcom = %s)',
         [current_user.id, id, current_user.id, id])
     biba = cursor.fetchone()
-    cursor.execute(
-        'SELECT login from uzer where iduser = %s',
-        [biba])
-    bibas = cursor.fetchone()
     if user[5] == current_user.login:
         cursor.execute(
             'DELETE FROM com WHERE (idavtor = %s and idcom = %s) or (idrecepient = %s and idcom = %s)',
             [current_user.id, id, current_user.id, id])
         conn.commit()
         cursor.close()
-        return redirect(url_for('main.user', login=bibas[0]))
-    return redirect(url_for('main.user', login=bibas[0]))
+        return redirect(url_for('main.user', id=biba[0]))
+    return redirect(url_for('main.user', id=biba[0]))
 
 
 @bp.route('/following/<id>', methods=['GET', 'POST'])

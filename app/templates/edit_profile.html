@@ -5,13 +5,13 @@
     <script>
     window.onload = function()
     {
-        let SelFack = document.getElementById('SelFack');
-        SelFack.onclick = function() {
+        let SelVUZ = document.getElementById('SelVUZ');
+        SelVUZ.onchange = function() {
             document.querySelector("input[id*='submit']").click()
             updateLeafData();
         }
-        let SelVUZ = document.getElementById('SelVUZ');
-        SelVUZ.onchange = function() {
+        let SelFack = document.getElementById('SelFack');
+        SelFack.onclick = function() {
             document.querySelector("input[id*='submit']").click()
             updateLeafData();
         }
