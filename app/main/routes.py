@@ -33,6 +33,7 @@ def edit_post(id):
     user = cursor.fetchone()
     cursor.execute('SELECT * FROM POST WHERE idpost = %s', [id])
     text = cursor.fetchone()
+    conn.commit()
     #vremya = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     if form.validate_on_submit():
         if user is None:
@@ -56,6 +57,7 @@ def edit_com(id):
     user = cursor.fetchone()
     cursor.execute('SELECT * FROM com WHERE idcom = %s', [id])
     text = cursor.fetchone()
+    conn.commit()
     #vremya = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     if form.validate_on_submit():
         if user is None:
@@ -76,12 +78,14 @@ def user(id):
     cursor.execute('select * from Uzer where iduser = %s',
                    [id])
     user = cursor.fetchone()
+    conn.commit()
     if user is None:
         return redirect(url_for('main.index'))
     if current_user.id != user[4]:
         cursor.execute('select * from addfriend where id2user = %s and id1user = %s',
                        [current_user.id,user[4]])
         frend = cursor.fetchone()
+        conn.commit()
         if frend is None:
             followed = False
         else:
@@ -94,6 +98,7 @@ def user(id):
                    [user[4]])
     following = cursor.fetchone()
     following = int(following[0])
+    conn.commit()
     form = PostForm()
     if form.validate_on_submit():
         vremya = datetime.now().strftime("%Y-%m-%d %X")
@@ -110,16 +115,19 @@ def user(id):
         'SELECT * FROM POST inner join uzer on uzer.iduser = post.idavtor WHERE idrecepient = %s order by datapost DESC',
         [user[4]])
     posts = cursor.fetchall()
+    conn.commit()
     cursor.execute(
         'SELECT * FROM POST inner join com on post.idpost=com.idpost inner join uzer on uzer.iduser = com.idavtor WHERE post.idrecepient = %s order by datacom ASC',
         [user[4]])
     coms = cursor.fetchall()
+    conn.commit()
     page, per_page, offset = get_page_args(page_parameter='page',
                                            per_page_parameter='per_page')
     cursor.execute(
         'SELECT count(*) FROM POST WHERE idrecepient = %s',
         [user[4]])
     total = cursor.fetchone()
+    conn.commit()
     pagination_posts = posts[offset: offset + per_page]
     pagination = Pagination(page=page, total=total[0], record_name='posts', css_framework='bootstrap4', per_page=10)
     return render_template('user.html', form=form, user=user, fio=user[0], logen=user[5], about_me=user[7], followed=followed,
@@ -133,6 +141,7 @@ def user_popup(login):
     cursor.execute('select * from Uzer where login = %s',
                    [login])
     user = cursor.fetchone()
+    conn.commit()
     if user is None:
         flash(_('User %(username)s not found.', username=login))
         return redirect(url_for('main.index'))
@@ -140,6 +149,7 @@ def user_popup(login):
         cursor.execute('select * from addfriend where id2user = %s and id1user = %s',
                        [current_user.id,user[4]])
         frend = cursor.fetchone()
+        conn.commit()
         if frend is None:
             followed = False
         else:
@@ -147,10 +157,12 @@ def user_popup(login):
     cursor.execute('select * from vo where iduser = %s',
                    [user[4]])
     vo = cursor.fetchone()
+    conn.commit()
     if vo is not None:
         cursor.execute(
             'SELECT * FROM vo natural join kafedra natural join facultet natural join vuz where iduser = %s', [user[4]])
         vishobr = cursor.fetchone()
+        conn.commit()
     else:
         return redirect(url_for('main.user', id=user[4]))
     cursor.execute('select count(*) from addfriend where id1user = %s',
@@ -161,6 +173,7 @@ def user_popup(login):
                    [user[4]])
     following = cursor.fetchone()
     following = int(following[0])
+    conn.commit()
     return render_template('user_popup.html', user=user, fio=user[0], logen=user[5], about_me=user[7], followed=followed,
                            following=following, followers=followers, avatar=user[8], phone=user[1], gender=user[2],
                            dr=user[3], vuz=vishobr[8], kafedra=vishobr[6], facultet=vishobr[7], iduser=user[4])
@@ -174,11 +187,13 @@ def edit_profile():
     vuz = form.SelVUZ.data
     cursor.execute('select idFack,nameFack from facultet where idvuz = %s', [vuz])
     fack = cursor.fetchall()
+    conn.commit()
     kolvofack = len(fack)
     form.SelFack.choices = fack
     Fack = form.SelFack.data
     cursor.execute('select idKafedra,nameKafedra from kafedra where idfack = %s', [Fack])
     kaf = cursor.fetchall()
+    conn.commit()
     form.SelKaf.choices = kaf
     Kaf = form.SelKaf.data
     if form.validate_on_submit():
@@ -193,6 +208,7 @@ def edit_profile():
         conn.commit()
         cursor.execute('SELECT iduser FROM VO WHERE iduser = %s', [current_user.id])
         iduser = cursor.fetchone()
+        conn.commit()
         if iduser is None:
             cursor.execute('INSERT INTO VO(iduser,idvuz,idfack,idkafedra) VALUES(%s,%s,%s,%s)', [current_user.id,vuz,Fack,Kaf])
             conn.commit()
@@ -214,6 +230,7 @@ def edit_profile():
         nomervuza = cursor.fetchone()
         cursor.execute('SELECT idvuz from VUZ where idvuz = %s', [nomervuza])
         vuzik = cursor.fetchone()
+        conn.commit()
         form.SelVUZ.default = [('2', 'Горный')]
     return render_template('edit_profile.html', title=_('Edit Profile'),
                            form=form, vuz=vuz, kolvofack=kolvofack, Kaf=Kaf, fack=fack)
@@ -226,6 +243,7 @@ def follow(id):
     cursor.execute('select * from Uzer where iduser = %s',
                    [id])
     user = cursor.fetchone()
+    conn.commit()
     if user is None:
         flash(_('User %(username)s not found.', username=user[5]))
         return redirect(url_for('main.index'))
@@ -249,6 +267,7 @@ def unfollow(id):
     cursor.execute('select * from Uzer where iduser = %s',
                    [id])
     user = cursor.fetchone()
+    conn.commit()
     if user is None:
         flash(_('User %(username)s not found.', username=user[5]))
         return redirect(url_for('main.index'))
@@ -278,6 +297,7 @@ def deletepost(id):
         'SELECT * from com where idpost = %s',
         [id])
     bibaboba = cursor.fetchone()
+    conn.commit()
     if user[5] == current_user.login:
         if bibaboba is None:
             cursor.execute(
@@ -291,7 +311,6 @@ def deletepost(id):
                 'DELETE FROM post WHERE (idavtor = %s and idpost = %s) or (idrecepient = %s and idpost = %s)',
                 [current_user.id, id, current_user.id, id])
             conn.commit()
-            cursor.close()
         return redirect(url_for('main.user', id=biba[0]))
     return redirect(url_for('main.user', id=biba[0]))
 
@@ -309,6 +328,7 @@ def comment(id):
     cursor.execute('select * from uzer where iduser = %s',
                    [usten])
     ust = cursor.fetchone()
+    conn.commit()
     forma = ComForm()
     if forma.validate_on_submit():
         vremy = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -332,6 +352,7 @@ def deletecom(id):
         'SELECT idrecepient from com where (idavtor = %s and idcom = %s) or (idrecepient = %s and idcom = %s)',
         [current_user.id, id, current_user.id, id])
     biba = cursor.fetchone()
+    conn.commit()
     if user[5] == current_user.login:
         cursor.execute(
             'DELETE FROM com WHERE (idavtor = %s and idcom = %s) or (idrecepient = %s and idcom = %s)',
@@ -353,6 +374,7 @@ def folowww(id):
         'SELECT * FROM addfriend inner join uzer on addfriend.id1user=uzer.iduser and addfriend.id2user = %s',
         [id])
     frendi = cursor.fetchall()
+    conn.commit()
     friendempty = False
     if len(frendi) == 0:
         friendempty = True
@@ -372,6 +394,7 @@ def foloww(id):
         'SELECT * FROM addfriend inner join uzer on addfriend.id2user=uzer.iduser and addfriend.id1user = %s',
         [id])
     frendi = cursor.fetchall()
+    conn.commit()
     friendempty = False
     if len(frendi) == 0:
         friendempty = True

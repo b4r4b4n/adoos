@@ -20,6 +20,7 @@ def login():
         cursor.execute('select password,login,iduser from Uzer where login = %s',
                        [form.login.data])
         user = cursor.fetchone()
+        conn.commit()
         parol = form.password.data
         if user is None or not check_password_hash(user[0], parol):
             flash(_('Invalid username or password'))
@@ -48,7 +49,6 @@ def register():
             (form.fio.data, form.phone.data, form.gender.data, form.dr.data, form.login.data,
              generate_password_hash(form.password.data),'https://sun9-31.userapi.com/c622218/v622218469/3809c/DVjj0zqmizo.jpg'))
         conn.commit()
-        cursor.close()
         flash(_('Учетная запись для {} создана успешно!'.format(form.fio.data)))
         flash(_('Login: {}'.format(form.login.data)))
         flash(_('Password: {}'.format(form.password.data)))

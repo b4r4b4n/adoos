@@ -18,7 +18,7 @@
                 <br>
                 <span id="post{{ com[7] }}">{{ com[5] }}</span>
                 <br>
-                <p>{{ _('%(when)s', when=moment(com[6], local=True).fromNow()) }}
+                <p>{{ _('%(when)s', when=moment(com[6]).fromNow()) }}
                 {% if com[16] == current_user.login or current_user.login == logen %}
                     <a href="{{ url_for('main.deletecom', id=com[7]) }}">{{ _('Удалить') }}</a>
                     {% if com[16] == current_user.login %}
