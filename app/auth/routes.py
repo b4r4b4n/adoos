@@ -42,12 +42,12 @@ def register():
     if current_user.is_authenticated:
         return redirect(url_for('main.index'))
     form = RegistrationForm()
+    cursor = conn.cursor()
     if form.validate_on_submit():
-        cursor = conn.cursor()
         cursor.execute(
             'insert into Uzer (fio,phone,gender,dyennarodjenya,login,password,avatar) values(%s,%s,%s,%s,%s,%s,%s)',
-            (form.fio.data, form.phone.data, form.gender.data, form.dr.data, form.login.data,
-             generate_password_hash(form.password.data),'https://sun9-31.userapi.com/c622218/v622218469/3809c/DVjj0zqmizo.jpg'))
+            [form.fio.data, form.phone.data, form.gender.data, form.dr.data, form.login.data,
+             generate_password_hash(form.password.data),'https://sun9-31.userapi.com/c622218/v622218469/3809c/DVjj0zqmizo.jpg'])
         conn.commit()
         flash(_('Учетная запись для {} создана успешно!'.format(form.fio.data)))
         flash(_('Login: {}'.format(form.login.data)))
