@@ -155,7 +155,7 @@ def user_popup(id):
         else:
             followed = True
     cursor.execute('select * from vo where iduser = %s',
-                   [user[4]])
+                   [id])
     vo = cursor.fetchone()
     conn.commit()
     if vo is not None:
@@ -163,14 +163,12 @@ def user_popup(id):
             'SELECT * FROM vo natural join kafedra natural join facultet natural join vuz where iduser = %s', [user[4]])
         vishobr = cursor.fetchone()
         conn.commit()
-    else:
-        return redirect(url_for('main.user', id=user[4]))
     cursor.execute('select count(*) from addfriend where id1user = %s',
-                   [user[4]])
+                   [id])
     followers = cursor.fetchone()
     followers = int(followers[0])
     cursor.execute('select count(*) from addfriend where id2user = %s',
-                   [user[4]])
+                   [id])
     following = cursor.fetchone()
     following = int(following[0])
     conn.commit()
