@@ -227,10 +227,12 @@ def edit_profile():
         form.gender.data = current_user.gender
         form.about_me.data = current_user.about_me
         form.avatar.data = current_user.avatar
-        #cursor.execute('SELECT idvuz from VO where iduser = %s', [current_user.id])
-        #nomervuza = cursor.fetchone()
-        #conn.commit()
-        #form.SelVUZ.default = [('2', 'Горный')]
+        cursor.execute('SELECT idvuz,idfack,idkafedra from VO where iduser = %s', [current_user.id])
+        numb = cursor.fetchone()
+        if numb is not None:
+            form.SelVUZ.data = numb[0]
+            form.SelFack.data = numb[1]
+            form.SelKaf.data = numb[2]
     return render_template('edit_profile.html', title=_('Edit Profile'),
                            form=form, vuz=vuz, kolvofack=kolvofack, Kaf=Kaf, fack=fack)
 
