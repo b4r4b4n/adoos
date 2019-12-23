@@ -45,7 +45,7 @@ class RegistrationForm(FlaskForm):
                                          ('Household pet that walked across the keyboard - Other', 'Household pet that walked across the keyboard - Other'),
                                          ('Attack helicopter', 'Attack helicopter')
                                          ])
-    dr = DateField('День рождения', format='%d-%m-%Y')
+    dr = DateField('День рождения', format='%d/%m/%Y')
     login = StringField(_l('Email'), validators=[DataRequired(), Email()])
     password = PasswordField(_l('Password'), validators=[DataRequired()])
     password2 = PasswordField(
