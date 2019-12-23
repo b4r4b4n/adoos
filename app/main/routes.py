@@ -15,12 +15,7 @@ conn = conn()
 @bp.route('/index', methods=['GET', 'POST'])
 @login_required
 def index():
-    form = PostForm()
-    if form.validate_on_submit():
-        conn.commit()
-        flash(_('Your post is now live!'))
-        return redirect(url_for('main.index'))
-    return render_template('index.html', title=_('Home'), form=form)
+    return redirect(url_for('main.user', id=current_user.id))
 
 
 @bp.route('/edit_post/<id>', methods=['GET', 'POST'])
