@@ -24,7 +24,7 @@ class RegistrationForm(FlaskForm):
     gender = SelectField('Пол', choices=[('Мale', 'Male'),
                                          ('Female', 'Female'),
                                          ('Transexual Male', 'Transexsual Male'),
-                                         (' Transexsual Female', 'Transexsual Female'),
+                                         ('Transexsual Female', 'Transexsual Female'),
                                          ('Metrosexual Male', 'Metrosexual Male'),
                                          ('Metrosexual Female', 'Metrosexual Female'),
                                          ('Male, but curious what being a Female like', 'Male, but curious what being a Female like'),
