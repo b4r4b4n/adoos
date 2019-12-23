@@ -44,14 +44,15 @@ def register():
     form = RegistrationForm()
     cursor = conn.cursor()
     if form.validate_on_submit():
+        fio = form.familiya.data + ' ' + form.imya.data + ' ' + form.otchestvo.data
         cursor.execute(
             'insert into Uzer (fio,phone,gender,dyennarodjenya,login,password,avatar) values(%s,%s,%s,%s,%s,%s,%s)',
-            [form.fio.data, form.phone.data, form.gender.data, form.dr.data, form.login.data,
+            [fio, form.phone.data, form.gender.data, form.dr.data, form.login.data,
              generate_password_hash(form.password.data),'https://sun9-31.userapi.com/c622218/v622218469/3809c/DVjj0zqmizo.jpg'])
         conn.commit()
-        flash(_('Учетная запись для {} создана успешно!'.format(form.fio.data)))
-        flash(_('Login: {}'.format(form.login.data)))
-        flash(_('Password: {}'.format(form.password.data)))
+        flash(_('Учетная запись для %(fio)s создана успешно!', fio=fio))
+        flash(_('Login: %(login)s', login=form.login.data))
+        flash(_('Password: %(passw)s', passw=form.password.data))
         return redirect(url_for('auth.login'))
     return render_template('auth/register.html', title=_('Register'),
                            form=form)

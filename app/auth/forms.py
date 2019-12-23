@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, DateField, RadioField, SelectField,IntegerField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, DateField, RadioField, SelectField,IntegerField, validators
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
 from flask_babel import _, lazy_gettext as _l
 from app.models import User
@@ -16,8 +16,11 @@ class LoginForm(FlaskForm):
 
 
 class RegistrationForm(FlaskForm):
-    fio = StringField('Фамилия Имя Отчество')
-    phone = IntegerField('Номер')
+    familiya = StringField('Фамилия', validators=[DataRequired()])
+    imya = StringField('Имя', validators=[DataRequired()])
+    otchestvo = StringField('Отчество')
+    phone = IntegerField('Номер', [validators.NumberRange(min=79000000000, max=89999999999,
+                                                          message="Введите корректный номер телефона формата : 79XXXXXXXXX")])
     gender = SelectField('Пол', choices=[('Мale', 'Male'),
                                          ('Female', 'Female'),
                                          ('Transexual Male', 'Transexsual Male'),
