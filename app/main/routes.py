@@ -285,30 +285,56 @@ def deletepost(id):
     cursor.execute('select * from Uzer where login = %s',
                    [current_user.login])
     user = cursor.fetchone()
-    cursor.execute(
-        'SELECT idrecepient from post where (idavtor = %s and idpost = %s) or (idrecepient = %s and idpost = %s)',
-        [current_user.id, id, current_user.id, id])
-    biba = cursor.fetchone()
-    cursor.execute(
-        'SELECT * from com where idpost = %s',
-        [id])
-    bibaboba = cursor.fetchone()
-    conn.commit()
     if user[5] == current_user.login:
-        if bibaboba is None:
+        if current_user.login == 'tehno-09@mail.ru':
             cursor.execute(
-                'DELETE FROM post WHERE (idavtor = %s and idpost = %s) or (idrecepient = %s and idpost = %s)',
-                [current_user.id, id, current_user.id, id])
+                'SELECT idrecepient from post where idpost=%s',
+                [id])
+            biba = cursor.fetchone()
             conn.commit()
+            cursor.execute(
+                'SELECT * from com where idpost = %s',
+                [id])
+            bibaboba = cursor.fetchone()
+            conn.commit()
+            if bibaboba is None:
+                cursor.execute(
+                    'DELETE FROM post WHERE idpost=%s',
+                    [id])
+                conn.commit()
+            else:
+                cursor.execute('DELETE FROM COM WHERE idpost=%s', [id])
+                conn.commit()
+                cursor.execute(
+                    'DELETE FROM post WHERE idpost = %s',
+                    [id])
+                conn.commit()
+                cursor.close()
+            return redirect(url_for('main.user', id=biba[0]))
         else:
-            cursor.execute('DELETE FROM COM WHERE idpost=%s',[id])
-            conn.commit()
             cursor.execute(
-                'DELETE FROM post WHERE (idavtor = %s and idpost = %s) or (idrecepient = %s and idpost = %s)',
+                'SELECT idrecepient from post where (idavtor = %s and idpost = %s) or (idrecepient = %s and idpost = %s)',
                 [current_user.id, id, current_user.id, id])
+            biba = cursor.fetchone()
+            cursor.execute(
+                'SELECT * from com where idpost = %s',
+                [id])
+            bibaboba = cursor.fetchone()
             conn.commit()
-        return redirect(url_for('main.user', id=biba[0]))
-    return redirect(url_for('main.user', id=biba[0]))
+            if bibaboba is None:
+                cursor.execute(
+                    'DELETE FROM post WHERE (idavtor = %s and idpost = %s) or (idrecepient = %s and idpost = %s)',
+                    [current_user.id, id, current_user.id, id])
+                conn.commit()
+            else:
+                cursor.execute('DELETE FROM COM WHERE idpost=%s', [id])
+                conn.commit()
+                cursor.execute(
+                    'DELETE FROM post WHERE (idavtor = %s and idpost = %s) or (idrecepient = %s and idpost = %s)',
+                    [current_user.id, id, current_user.id, id])
+                conn.commit()
+            return redirect(url_for('main.user', id=biba[0]))
+    return redirect(url_for('main.user', id=current_user.id))
 
 
 @bp.route('/comment/<id>', methods=['GET', 'POST'])
@@ -341,19 +367,32 @@ def deletecom(id):
     cursor.execute('select * from Uzer where login = %s',
                    [current_user.login])
     user = cursor.fetchone()
-    cursor.execute(
-        'SELECT idrecepient from com where (idavtor = %s and idcom = %s) or (idrecepient = %s and idcom = %s)',
-        [current_user.id, id, current_user.id, id])
-    biba = cursor.fetchone()
-    conn.commit()
     if user[5] == current_user.login:
-        cursor.execute(
-            'DELETE FROM com WHERE (idavtor = %s and idcom = %s) or (idrecepient = %s and idcom = %s)',
-            [current_user.id, id, current_user.id, id])
-        conn.commit()
-        cursor.close()
-        return redirect(url_for('main.user', id=biba[0]))
-    return redirect(url_for('main.user', id=biba[0]))
+        if current_user.login == 'tehno-09@mail.ru':
+            cursor.execute(
+                'SELECT idrecepient from com where idcom=%s',
+                [id])
+            biba = cursor.fetchone()
+            conn.commit()
+            cursor.execute(
+                'DELETE FROM com WHERE idcom=%s',
+                [id])
+            conn.commit()
+            cursor.close()
+            return redirect(url_for('main.user', id=biba[0]))
+        else:
+            cursor.execute(
+                'SELECT idrecepient from com where (idavtor = %s and idcom = %s) or (idrecepient = %s and idcom = %s)',
+                [current_user.id, id, current_user.id, id])
+            biba = cursor.fetchone()
+            conn.commit()
+            cursor.execute(
+                'DELETE FROM com WHERE (idavtor = %s and idcom = %s) or (idrecepient = %s and idcom = %s)',
+                [current_user.id, id, current_user.id, id])
+            conn.commit()
+            cursor.close()
+            return redirect(url_for('main.user', id=biba[0]))
+    return redirect(url_for('main.user', id=current_user.id))
 
 
 @bp.route('/following/<id>', methods=['GET', 'POST'])
