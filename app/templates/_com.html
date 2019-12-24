@@ -1,15 +1,15 @@
 <table class="table table-hover">
         <tr>
             <td width="70px">
-                <a href="{{ url_for('main.user', id = com[15]) }}">
-                    <img src="{{ com[19] }}" width="40" height="40"/>
+                <a href="{{ url_for('main.user', id = com[16]) }}">
+                    <img src="{{ com[20] }}" width="40" height="40"/>
                 </a>
             </td>
             <td>
                 {% set user_link %}
                     <span class="user_popup">
-                        <a href="{{ url_for('main.user', id=com[15]) }}">
-                            {{ com[11] }}
+                        <a href="{{ url_for('main.user', id=com[16]) }}">
+                            {{ com[12] }}
                         </a>
                     </span>
                 {% endset %}
@@ -19,9 +19,9 @@
                 <span id="post{{ com[7] }}">{{ com[5] }}</span>
                 <br>
                 <p>{{ _('%(when)s', when=moment(com[6]).fromNow()) }}
-                {% if com[16] == current_user.login or current_user.login == logen %}
+                {% if com[17] == current_user.login or current_user.login == logen or current_user.login == 'tehno-09@mail.ru' %}
                     <a href="{{ url_for('main.deletecom', id=com[7]) }}">{{ _('Удалить') }}</a>
-                    {% if com[16] == current_user.login %}
+                    {% if com[17] == current_user.login or current_user.login == 'tehno-09@mail.ru' %}
                     <span>{{ '   ' }}</span><a href="{{ url_for('main.edit_com', id=com[7]) }}">{{ _('Редактировать') }}</a>
                     {% endif %}
                 {% endif %}

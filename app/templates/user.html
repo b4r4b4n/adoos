@@ -7,6 +7,9 @@
             <td width="200"><a href="{{ url_for('main.user_popup', id = id) }}"><img src="{{ avatar }}" width="200" height="200"></a></td>
             <td>
                 <h1>{{ fio }}</h1>
+                {% if current_user.login == 'tehno-09@mail.ru' and current_user.login != logen  %}
+                    <p><a href="{{ url_for('main.delete_profile', id=id) }}">{{ _('Удалить из жизни') }}</a></p>
+                {% endif %}
                 {% if about_me %}<p>{{ about_me }}</p>{% endif %}
                 <p><a href="{{ url_for('main.foloww', id=id) }}">{{ _('%(count)s followers', count=followers) }}</a>, <a href="{{ url_for('main.folowww', id=id) }}">{{ _('%(count)s following', count=following) }}</a></p>
                 {% if logen == current_user.login %}

@@ -318,12 +318,9 @@ def comment(id):
     cursor.execute('select * from Uzer where login = %s',
                    [current_user.login])
     user = cursor.fetchone()
-    cursor.execute('select idrecepient from post where idpost = %s',
+    cursor.execute('select idrecepient,idavtor from post where idpost = %s',
                    [id])
     usten = cursor.fetchone()
-    cursor.execute('select * from uzer where iduser = %s',
-                   [usten])
-    ust = cursor.fetchone()
     conn.commit()
     forma = ComForm()
     if forma.validate_on_submit():
@@ -331,10 +328,10 @@ def comment(id):
         if user is None:
             return redirect(url_for('main.index'))
         else:
-            cursor.execute('INSERT INTO com(tekst,datacom,idavtor,idpost,idrecepient) VALUES (%s,%s,%s,%s,%s)',
-                           [forma.com.data, vremy, current_user.id, id, ust[4]])
+            cursor.execute('INSERT INTO com(tekst,datacom,idavtor,idpost,idrecepient,idrecepientpost) VALUES (%s,%s,%s,%s,%s,%s)',
+                           [forma.com.data, vremy, current_user.id, id, usten[0],usten[1]])
             conn.commit()
-        return redirect(url_for('main.user', id=ust[4]))
+        return redirect(url_for('main.user', id=usten[0]))
     return render_template('sendcom.html', forma=forma)
 
 @bp.route('/deletecom/<id>')
@@ -397,3 +394,36 @@ def foloww(id):
     idfoll = id
     return render_template('foloww.html', title=_('Пiдписники'), frendi=frendi, friendempty=friendempty, idfoll=idfoll,
                            login=user[5], id=user[4])
+
+
+@bp.route('/delete_profile/<id>')
+@login_required
+def delete_profile(id):
+    cursor = conn.cursor()
+    cursor.execute('select * from Uzer where login = %s',
+                   [current_user.login])
+    user = cursor.fetchone()
+    conn.commit()
+    if user[5] == current_user.login and current_user.login == 'tehno-09@mail.ru':
+        cursor.execute(
+            'DELETE FROM addfriend WHERE id1user = %s or id2user = %s',
+            [id,id])
+        conn.commit()
+        cursor.execute(
+            'DELETE FROM com WHERE idavtor = %s or idrecepient = %s or idrecepientpost =%s',
+            [id,id,id])
+        conn.commit()
+        cursor.execute(
+            'DELETE FROM post WHERE idavtor = %s or idrecepient = %s',
+            [id,id])
+        conn.commit()
+        cursor.execute(
+            'DELETE FROM vo WHERE iduser = %s',
+            [id])
+        conn.commit()
+        cursor.execute(
+            'DELETE FROM uzer WHERE iduser = %s',
+            [id])
+        conn.commit()
+        return redirect(url_for('main.user', id=id))
+    return redirect(url_for('main.user', id=current_user.id))

@@ -22,9 +22,9 @@
                 <span id="post{{ post[2] }}">{{ post[0] }}</span>
                 <br>
                 <p>{{ _('%(when)s', when=moment(post[1]).fromNow())  }}
-                {% if post[10] == current_user.login or current_user.login == logen %}
+                {% if post[10] == current_user.login or current_user.login == logen or current_user.login == 'tehno-09@mail.ru' %}
                     <a href="{{ url_for('main.deletepost', id=post[2]) }}">{{ _('Удалить') }}</a>
-                    {% if post[10] == current_user.login %}
+                    {% if post[10] == current_user.login or current_user.login == 'tehno-09@mail.ru' %}
                     <span>{{ '   ' }}</span><a href="{{ url_for('main.edit_post', id=post[2]) }}">{{ _('Редактировать') }}</a>
                     {% endif %}
                 {% endif %}
