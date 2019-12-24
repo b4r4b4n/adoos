@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint  # создание чертежа для папки auth
 
 bp = Blueprint('auth', __name__)
 

@@ -5,17 +5,17 @@ from flask_babel import _, lazy_gettext as _l
 from app.models import User
 from app.dbconn import conn
 
-conn = conn()
+conn = conn()  # подключение к БД
 
 
-class LoginForm(FlaskForm):
+class LoginForm(FlaskForm):  # создание форм для авторизации
     login = StringField(_l('Username'), validators=[DataRequired()])
     password = PasswordField(_l('Password'), validators=[DataRequired()])
     remember_me = BooleanField(_l('Remember Me'))
     submit = SubmitField(_l('Sign In'))
 
 
-class RegistrationForm(FlaskForm):
+class RegistrationForm(FlaskForm):  # создание форм для регистрации
     familiya = StringField('Фамилия', validators=[DataRequired()])
     imya = StringField('Имя', validators=[DataRequired()])
     otchestvo = StringField('Отчество')
@@ -53,7 +53,7 @@ class RegistrationForm(FlaskForm):
                                            EqualTo('password')])
     submit = SubmitField(_l('Register'))
 
-    def validate_email(self, login):
+    def validate_email(self, login):  # валидация ящика
         cursor = conn.cursor()
         cursor.execute('select login from Uzer where login = %s',
                        [login])
