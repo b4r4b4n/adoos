@@ -1,5 +1,6 @@
 from flask import render_template, flash, redirect, url_for, request, current_app
 from flask_login import current_user, login_required
+import random
 import re
 from flask_babel import _
 from app.main.forms import EditProfileForm, PostForm, ComForm, EditPostForm, EditCom
@@ -18,15 +19,10 @@ def index():
     cursor = conn.cursor()
     cursor.execute('select * from ITEMS')
     items = cursor.fetchall()
-    ult = [list(item) for item in items]
-    for ul in ult:
-        try:
-            index = int(ult.index(ul))
-            ult[index][10] = re.sub(r'[{}]', '', ul[10]).split(',')
-        except:
-            continue
+    ult = convert_to_list(items)
     conn.commit()
     page, per_page, offset = get_page_args(page_parameter='page', per_page_parameter='per_page')
+    per_page = 9
     cursor.execute(
         'SELECT count(*) FROM ITEMS')
     total = cursor.fetchone()
@@ -46,9 +42,28 @@ def item_fw(id):
     full = [it.replace('737x737', '1474x1474') for it in item[10]]
     review = [it.replace('737x737', '120x120') for it in item[10]]
     conn.commit()
+    cursor.execute('SELECT * FROM ITEMS WHERE TYPEITEM=%s AND NOT ID=%s',[item[9],id])
+    types = cursor.fetchall()
+    type = convert_to_list(types)
+    cursor.execute('SELECT count(*) FROM ITEMS WHERE TYPEITEM=%s AND NOT ID=%s', [item[9], id])
+    skilko = cursor.fetchone()
+    if skilko[0] < 4:
+        relateditems = type
+    elif skilko[0] >= 4:
+        relateditems = random.sample(type, 4)
     kolvo = len(item[10])
-    return render_template('submainitem.html', title=item[5], item=item, kolvo=kolvo, review=review, full=full)
+    return render_template('submainitem.html', title=item[5], item=item, kolvo=kolvo, review=review, full=full, related=relateditems)
 
+
+def convert_to_list(type):
+    ult = [list(item) for item in type]
+    for ul in ult:
+        try:
+            index = int(ult.index(ul))
+            ult[index][10] = re.sub(r'[{}]', '', ul[10]).split(',')
+        except:
+            continue
+    return ult
 
 @bp.route('/edit_com/<id>', methods=['GET', 'POST'])
 @login_required

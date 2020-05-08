@@ -206,10 +206,16 @@
 <!--end left-->
 
 <div class="col-md-4 col-sm-12 col-xs-12">
-<h4 class=" font-weight-7">Fashion Casuals</h4>
+<h4 class=" font-weight-7">{{item[5]}}</h4>
 <div class="divider-line solid light"></div>
 <br/>
-<div class="col-md-5"><h2 class="text-primary font-weight-4">$299</h2></div>
+<div class="col-md-12">
+        <h5 class="text-primary">
+            <del class="oldprice">{{ item[6] }}</del>
+            <span class="productprice">{{ item[7] }}</span>
+            <span class="discountitem">({{ item[3] }} % off)</span>
+        </h5>
+</div>
 
 
 <div class="clearfix"></div>
@@ -224,7 +230,6 @@
 <div class="pro-details"><span>Store :</span> {{item[1]}}</div>
 <div class="pro-details"><span>Category :</span> {{item[9]}}</div>
 <div class="pro-details"><span>Size :</span> {{ item[8] }}</div>
-<div class="pro-details"><span>Product ID :</span> 1234578</div>
 <div class="clearfix"></div>
 <br/><br/>
 <ul class="sp-sc-icons">
@@ -247,69 +252,35 @@
  <section class="sec-bpadding-2">
       <div class="container">
         <div class="row">
+        {% if related %}
           <div class="col-xs-12 nopadding">
             <div class="sec-title-container less-padding-1 text-center">
-              <h4 class="font-weight-7 less-mar-1">Ralated Products</h4>
+              <h4 class="font-weight-7 less-mar-1">Related Products</h4>
             </div>
           </div>
           <div class="clearfix"></div>
           <!--end title-->
-
+        {% for item in related %}
           <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="sp-feature-box-3 margin-bottom">
-              <div class="img-box"> <a href="#" class="view-btn uppercase">View</a>
-                <div class="badge">Hot</div>
-                <img src="http://via.placeholder.com/600x700" alt="" class="img-responsive"/> </div>
+              <div class="img-box"> <a href="{{ url_for('main.item_fw', id=item[0]) }}" class="view-btn uppercase">View</a>
+                <img src="{{ item[10][0] }}" alt="" class="img-responsive"/> </div>
               <div class="clearfix"></div>
               <br/>
-              <h5 class="less-mar-1">Slogan Print Tee</h5>
-              <p>Lorem ipsum dolor sit amet</p>
-              <h5 class="text-primary">$ 25.00–$ 29.00</h5>
+                <h5 class="less-mar-1">{{ item[4] }}</h5>
+                <p>{{ item[5] }}</p>
+                <div>
+                    <del class="oldprice">{{ item[6] }}</del>
+                    <span class="productprice">{{ item[7] }}</span>
+                    <span class="discountitem">({{ item[3] }} % off)</span>
+                </div>
               <br/>
-              <a class="btn btn-border light btn-small" href="#">Add to cart</a> </div>
+              <a class="btn btn-border light btn-small" href="{{ item[2] }}">Link</a> </div>
           </div>
+        {% endfor %}
+        {% endif %}
           <!--end item-->
 
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="sp-feature-box-3 margin-bottom">
-              <div class="img-box"> <a href="#" class="view-btn uppercase">View</a> <img src="http://via.placeholder.com/600x700" alt="" class="img-responsive"/> </div>
-              <div class="clearfix"></div>
-              <br/>
-              <h5 class="less-mar-1">White Sleeve Top</h5>
-              <p>Lorem ipsum dolor sit amet</p>
-              <h5 class="text-primary">$ 25.00–$ 29.00</h5>
-              <br/>
-              <a class="btn btn-border light btn-small" href="#">Add to cart</a> </div>
-          </div>
-          <!--end item-->
-
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="sp-feature-box-3 margin-bottom">
-              <div class="img-box"> <a href="#" class="view-btn uppercase">View</a>
-                <div class="badge">New</div>
-                <img src="http://via.placeholder.com/600x700" alt="" class="img-responsive"/> </div>
-              <div class="clearfix"></div>
-              <br/>
-              <h5 class="less-mar-1">Long Batwing Sleeve</h5>
-              <p>Lorem ipsum dolor sit amet</p>
-              <h5 class="text-primary">$ 25.00–$ 29.00</h5>
-              <br/>
-              <a class="btn btn-border light btn-small" href="#">Add to cart</a> </div>
-          </div>
-          <!--end item-->
-
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="sp-feature-box-3 margin-bottom">
-              <div class="img-box"> <a href="#" class="view-btn uppercase">View</a> <img src="http://via.placeholder.com/600x700" alt="" class="img-responsive"/> </div>
-              <div class="clearfix"></div>
-              <br/>
-              <h5 class="less-mar-1">Off-shoulder Top</h5>
-              <p>Lorem ipsum dolor sit amet</p>
-              <h5 class="text-primary">$ 25.00–$ 29.00</h5>
-              <br/>
-              <a class="btn btn-border light btn-small" href="#">Add to cart</a> </div>
-          </div>
-          <!--end item-->
         </div>
       </div>
     </section>
