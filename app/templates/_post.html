@@ -1,43 +1,20 @@
 {{ moment.include_moment() }}
 {{ moment.include_jquery() }}
 {{ moment.lang("ru") }}
-    <table class="table table-hover">
-        <tr>
-            <td width="70px">
-                <a href="{{ url_for('main.user', id = post[9]) }}">
-                    <img src="{{ post[13] }}" width="58" height="58"/>
-                </a>
-            </td>
-            <td >
-                {% set user_link %}
-                    <span class="user_popup">
-                        <a href="{{ url_for('main.user', id=post[9]) }}">
-                            {{ post[5] }}
-                        </a>
-                    </span>
-                {% endset %}
-                {{ _('%(username)s сказал',
-                    username=user_link) }}
-                <br>
-                <span id="post{{ post[2] }}">{{ post[0] }}</span>
-                <br>
-                <p>{{ _('%(when)s', when=moment(post[1]).fromNow())  }}
-                {% if post[10] == current_user.login or current_user.login == logen or current_user.login == 'tehno-09@mail.ru' %}
-                    <a href="{{ url_for('main.deletepost', id=post[2]) }}">{{ _('Удалить') }}</a>
-                    {% if post[10] == current_user.login or current_user.login == 'tehno-09@mail.ru' %}
-                    <span>{{ '   ' }}</span><a href="{{ url_for('main.edit_post', id=post[2]) }}">{{ _('Редактировать') }}</a>
-                    {% endif %}
-                {% endif %}
-                <span>{{ '   ' }}</span><a href="{{ url_for('main.comment', id=post[2]) }}">{{ _('Комментировать') }}</a></p>
-            </td>
-        </tr>
-        <th>
-            <th style="font-weight:normal">
-                {% for com in coms %}
-                    {% if com[2] == post[2] %}
-                    {% include '_com.html' %}
-                    {% endif %}
-                {% endfor %}
-            </th>
-        </th>
-    </table>
+    <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="sp-feature-box-3 margin-bottom">
+              <div class="img-box"> <a href="{{ url_for('main.item_fw', id=item[0]) }}" class="view-btn uppercase">View</a>
+                <img src="{{ item[10][0] }}" alt="" class="img-responsive"/> </div>
+            <div class="clearfix"></div>
+            <br/>
+            <h5 class="less-mar-1">{{ item[4] }}</h5>
+            <p>{{ item[5] }}</p>
+            <div>
+                <del class="oldprice">{{ item[6] }}</del>
+                <span class="productprice">{{ item[7] }}</span>
+                <span class="discountitem">({{ item[3] }} % off)</span>
+            </div>
+            <br/>
+            <a class="btn btn-border light btn-small" href="{{ item[2] }}" target="_blank">Link</a> </div>
+            <br/>
+    </div>

@@ -1,4 +1,4 @@
-2019-12-24 07:52:25,430 ERROR: Exception on /deletepost/181 [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
+2020-05-08 14:47:28,209 ERROR: Exception on /item/1089 [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,12 +12,26 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask_login\utils.py", line 228, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 310, in deletepost
-    return redirect(url_for('main.user', id=biba[0]))
-TypeError: 'NoneType' object is not subscriptable
-2019-12-24 07:56:52,186 ERROR: Exception on /deletepost/181 [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
+  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 50, in item_fw
+    return render_template('submainitem.html', title=item[5], item=item, kolvo=kolvo, review=review, full=full)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\templating.py", line 135, in render_template
+    context, ctx.app)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\templating.py", line 117, in _render
+    rv = template.render(context)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Baraban\PycharmProjects\untitled2\app\templates\submainitem.html", line 198, in top-level template code
+    {% for k in kolvo %}
+TypeError: 'int' object is not iterable
+2020-05-08 14:47:42,882 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-08 14:47:47,251 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-08 14:47:53,346 ERROR: Exception on /item/1089 [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -31,31 +45,28 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask_login\utils.py", line 228, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 310, in deletepost
-    return redirect(url_for('main.user', id=biba[0]))
-TypeError: 'NoneType' object is not subscriptable
-2019-12-24 07:58:56,533 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2019-12-24 07:59:10,429 ERROR: Exception on /deletepost/181 [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 50, in item_fw
+    return render_template('submainitem.html', title=item[5], item=item, kolvo=kolvo, review=review, full=full)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\templating.py", line 135, in render_template
+    context, ctx.app)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\templating.py", line 117, in _render
+    rv = template.render(context)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
     reraise(exc_type, exc_value, tb)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask_login\utils.py", line 228, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 297, in deletepost
-    [id])
-psycopg2.errors.ForeignKeyViolation: update or delete on table "post" violates foreign key constraint "com_idpost_fkey" on table "com"
-DETAIL:  Key (idpost)=(181) is still referenced from table "com".
-
-2019-12-24 08:01:40,541 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Baraban\PycharmProjects\untitled2\app\templates\submainitem.html", line 198, in top-level template code
+    {% for k in kolvo %}
+TypeError: 'int' object is not iterable
+2020-05-08 14:49:52,481 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-08 14:50:34,029 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-08 14:51:10,647 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-08 14:52:51,477 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-08 15:20:09,565 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-08 15:22:46,977 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-08 15:24:05,919 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-08 15:25:12,842 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]

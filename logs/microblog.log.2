@@ -1,4 +1,4 @@
-2019-12-24 06:50:19,814 ERROR: Exception on /delete_profile/10 [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
+2020-05-08 14:18:44,020 ERROR: Exception on /item/1350 [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,15 +12,34 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask_login\utils.py", line 228, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 425, in delete_profile
-    [id])
-psycopg2.errors.ForeignKeyViolation: update or delete on table "uzer" violates foreign key constraint "post_idavtor_fkey" on table "post"
-DETAIL:  Key (iduser)=(10) is still referenced from table "post".
-
-2019-12-24 06:50:58,102 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2019-12-24 06:51:01,807 ERROR: Exception on /delete_profile/10 [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
+  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 47, in item_fw
+    return render_template('submainitem.html', title=item[5], item=item)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\templating.py", line 135, in render_template
+    context, ctx.app)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\templating.py", line 117, in _render
+    rv = template.render(context)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Baraban\PycharmProjects\untitled2\app\templates\submainitem.html", line 61, in top-level template code
+    <a href="{{ url_for('main.main')}}" title="" class="logo mar-4"> <img width="175" height="50" src="/static/images/logo/logo-dark.png" alt=""> </a>
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\helpers.py", line 356, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\helpers.py", line 345, in url_for
+    force_external=external)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\werkzeug\routing.py", line 1776, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'main.main'. Did you mean 'main.index' instead?
+2020-05-08 14:18:45,110 ERROR: Exception on /item/1350 [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -34,94 +53,30 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask_login\utils.py", line 228, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 429, in delete_profile
-    [id])
-psycopg2.errors.ForeignKeyViolation: update or delete on table "uzer" violates foreign key constraint "post_idavtor_fkey" on table "post"
-DETAIL:  Key (iduser)=(10) is still referenced from table "post".
-
-2019-12-24 06:51:55,061 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2019-12-24 06:52:10,343 ERROR: Exception on /delete_profile/10 [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 47, in item_fw
+    return render_template('submainitem.html', title=item[5], item=item)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\templating.py", line 135, in render_template
+    context, ctx.app)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\templating.py", line 117, in _render
+    rv = template.render(context)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Baraban\PycharmProjects\untitled2\app\templates\submainitem.html", line 61, in top-level template code
+    <a href="{{ url_for('main.main')}}" title="" class="logo mar-4"> <img width="175" height="50" src="/static/images/logo/logo-dark.png" alt=""> </a>
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\helpers.py", line 356, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
     reraise(exc_type, exc_value, tb)
   File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\_compat.py", line 35, in reraise
     raise value
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask_login\utils.py", line 228, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 421, in delete_profile
-    [id,id])
-psycopg2.errors.ForeignKeyViolation: update or delete on table "post" violates foreign key constraint "com_idpost_fkey" on table "com"
-DETAIL:  Key (idpost)=(37) is still referenced from table "com".
-
-2019-12-24 06:52:43,232 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2019-12-24 06:52:47,697 ERROR: Exception on /delete_profile/10 [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask_login\utils.py", line 228, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 421, in delete_profile
-    [id,id])
-psycopg2.errors.ForeignKeyViolation: update or delete on table "post" violates foreign key constraint "com_idpost_fkey" on table "com"
-DETAIL:  Key (idpost)=(37) is still referenced from table "com".
-
-2019-12-24 06:58:27,316 ERROR: Exception on /user/id2 [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask_login\utils.py", line 228, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 74, in user
-    [id])
-psycopg2.errors.InFailedSqlTransaction: current transaction is aborted, commands ignored until end of transaction block
-
-2019-12-24 06:58:47,037 ERROR: Exception on /user/id5 [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask_login\utils.py", line 228, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 74, in user
-    [id])
-psycopg2.errors.InFailedSqlTransaction: current transaction is aborted, commands ignored until end of transaction block
-
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\helpers.py", line 345, in url_for
+    force_external=external)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\werkzeug\routing.py", line 1776, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'main.main'. Did you mean 'main.index' instead?

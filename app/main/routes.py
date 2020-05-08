@@ -1,5 +1,6 @@
-from flask import render_template, flash, redirect, url_for, request
+from flask import render_template, flash, redirect, url_for, request, current_app
 from flask_login import current_user, login_required
+import re
 from flask_babel import _
 from app.main.forms import EditProfileForm, PostForm, ComForm, EditPostForm, EditCom
 from app.models import User, Post
@@ -7,39 +8,46 @@ from app.main import bp
 from flask_paginate import Pagination, get_page_args
 from datetime import datetime
 from app.dbconn import conn
+from config import Config
 
 conn = conn()
 
-
 @bp.route('/', methods=['GET', 'POST'])
 @bp.route('/index', methods=['GET', 'POST'])
-@login_required
 def index():
-    return redirect(url_for('main.user', id=current_user.id))
-
-
-@bp.route('/edit_post/<id>', methods=['GET', 'POST'])
-@login_required
-def edit_post(id):
-    form = EditPostForm()
     cursor = conn.cursor()
-    cursor.execute('select * from Uzer where login = %s',
-                   [current_user.login])
-    user = cursor.fetchone()
-    cursor.execute('SELECT * FROM POST WHERE idpost = %s', [id])
-    text = cursor.fetchone()
+    cursor.execute('select * from ITEMS')
+    items = cursor.fetchall()
+    ult = [list(item) for item in items]
+    for ul in ult:
+        try:
+            index = int(ult.index(ul))
+            ult[index][10] = re.sub(r'[{}]', '', ul[10]).split(',')
+        except:
+            continue
     conn.commit()
-    #vremya = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    if form.validate_on_submit():
-        if user is None:
-            return redirect(url_for('main.user', id=user[4]))
-        else:
-            cursor.execute('UPDATE POST SET tekst = %s WHERE idpost = %s', [form.editpost.data, id])
-            conn.commit()
-            return redirect(url_for('main.user', id=text[4]))
-    elif request.method == 'GET':
-        form.editpost.data = text[0]
-    return render_template('edit_post.html', title=_('Редактирование') ,form=form)
+    page, per_page, offset = get_page_args(page_parameter='page', per_page_parameter='per_page')
+    cursor.execute(
+        'SELECT count(*) FROM ITEMS')
+    total = cursor.fetchone()
+    pagination_posts = ult[offset: offset + per_page]
+    pagination = Pagination(page=page, total=total[0], record_name='items', per_page=per_page)
+    return render_template('main.html', items=pagination_posts, pagination=pagination, paga=page)
+
+
+@bp.route('/item/<id>', methods=['GET', 'POST'])
+def item_fw(id):
+    cursor = conn.cursor()
+    cursor.execute('select * from ITEMS where id = %s',
+                   [id])
+    tkitem = cursor.fetchone()
+    item = list(tkitem)
+    item[10] = re.sub(r'[{}]', '', item[10]).split(',')
+    full = [it.replace('737x737', '1474x1474') for it in item[10]]
+    review = [it.replace('737x737', '120x120') for it in item[10]]
+    conn.commit()
+    kolvo = len(item[10])
+    return render_template('submainitem.html', title=item[5], item=item, kolvo=kolvo, review=review, full=full)
 
 
 @bp.route('/edit_com/<id>', methods=['GET', 'POST'])

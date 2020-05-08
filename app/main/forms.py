@@ -54,11 +54,6 @@ class EditProfileForm(FlaskForm):
                                          ('Attack helicopter', 'Attack helicopter')
                                          ])
     cursor = conn.cursor()
-    cursor.execute('select idvuz,namevuz from vuz order by idvuz asc')
-    VUZ = cursor.fetchall()
-    SelVUZ = SelectField('ВУЗ', choices=VUZ, coerce=int)
-    SelFack = SelectField('Факультет', choices=[], coerce=int)
-    SelKaf = SelectField('Кафедра', choices=[], coerce=int)
     submit = SubmitField(_l('Submit'))
 
     def __init__(self, original_username, *args, **kwargs):

@@ -1,4 +1,4 @@
-2019-12-24 06:43:57,936 ERROR: Exception on /delete_profile/10 [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
+2020-05-08 14:18:32,828 ERROR: Exception on /item/1350 [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,101 +12,89 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask_login\utils.py", line 228, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 413, in delete_profile
-    [id])
-psycopg2.errors.ForeignKeyViolation: update or delete on table "uzer" violates foreign key constraint "vo_iduser_fkey" on table "vo"
-DETAIL:  Key (iduser)=(10) is still referenced from table "vo".
-
-2019-12-24 06:44:47,398 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2019-12-24 06:44:54,378 ERROR: Exception on /delete_profile/10 [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 47, in item_fw
+    return render_template('submainitem.html', title=item[5], item=item)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\templating.py", line 134, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\loaders.py", line 125, in load
+    code = environment.compile(source, name, filename)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 591, in compile
+    self.handle_exception(exc_info, source_hint=source_hint)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
     reraise(exc_type, exc_value, tb)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask_login\utils.py", line 228, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 416, in delete_profile
-    [id])
-psycopg2.errors.ForeignKeyViolation: update or delete on table "uzer" violates foreign key constraint "post_idavtor_fkey" on table "post"
-DETAIL:  Key (iduser)=(10) is still referenced from table "post".
-
-2019-12-24 06:47:42,840 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2019-12-24 06:47:50,579 ERROR: Exception on /delete_profile/10 [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask_login\utils.py", line 228, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 413, in delete_profile
-    [id])
-psycopg2.errors.UndefinedColumn: column "iduser" does not exist
-LINE 1: DELETE FROM addfriend WHERE iduser = '10'
-                                    ^
-HINT:  Perhaps you meant to reference the column "addfriend.id1user" or the column "addfriend.id2user".
-
-2019-12-24 06:48:38,221 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2019-12-24 06:48:39,808 ERROR: Exception on /delete_profile/10 [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask_login\utils.py", line 228, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 413, in delete_profile
-    [id])
-IndexError: list index out of range
-2019-12-24 06:49:22,659 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2019-12-24 06:49:24,805 ERROR: Exception on /delete_profile/10 [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask_login\utils.py", line 228, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 416, in delete_profile
-    [id])
-psycopg2.errors.UndefinedColumn: column "iduser" does not exist
-LINE 1: DELETE FROM com WHERE iduser = '10'
-                              ^
-
-2019-12-24 06:50:06,676 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2019-12-24 06:50:13,763 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Baraban\PycharmProjects\untitled2\app\templates\submainitem.html", line 61, in template
+    <a href="{{ url_for('main.main'}}" title="" class="logo mar-4"> <img width="175" height="50" src="/static/images/logo/logo-dark.png" alt=""> </a>
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 497, in _parse
+    return Parser(self, source, name, encode_filename(filename)).parse()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 901, in parse
+    result = nodes.Template(self.subparse(), lineno=1)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 875, in subparse
+    add_data(self.parse_tuple(with_condexpr=True))
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 620, in parse_tuple
+    args.append(parse())
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 432, in parse_expression
+    return self.parse_condexpr()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 437, in parse_condexpr
+    expr1 = self.parse_or()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 450, in parse_or
+    left = self.parse_and()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 459, in parse_and
+    left = self.parse_not()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 470, in parse_not
+    return self.parse_compare()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 474, in parse_compare
+    expr = self.parse_math1()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 496, in parse_math1
+    left = self.parse_concat()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 507, in parse_concat
+    args = [self.parse_math2()]
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 517, in parse_math2
+    left = self.parse_pow()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 528, in parse_pow
+    left = self.parse_unary()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 547, in parse_unary
+    node = self.parse_postfix(node)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 676, in parse_postfix
+    node = self.parse_call(node)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 790, in parse_call
+    args.append(self.parse_expression())
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 432, in parse_expression
+    return self.parse_condexpr()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 437, in parse_condexpr
+    expr1 = self.parse_or()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 450, in parse_or
+    left = self.parse_and()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 459, in parse_and
+    left = self.parse_not()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 470, in parse_not
+    return self.parse_compare()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 474, in parse_compare
+    expr = self.parse_math1()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 496, in parse_math1
+    left = self.parse_concat()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 507, in parse_concat
+    args = [self.parse_math2()]
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 517, in parse_math2
+    left = self.parse_pow()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 528, in parse_pow
+    left = self.parse_unary()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 546, in parse_unary
+    node = self.parse_primary()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 564, in parse_primary
+    next(self.stream)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\lexer.py", line 359, in __next__
+    self.current = next(self._iter)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\lexer.py", line 562, in wrap
+    for lineno, token, value in stream:
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\lexer.py", line 690, in tokeniter
+    filename)
+jinja2.exceptions.TemplateSyntaxError: unexpected '}', expected ')'
+2020-05-08 14:18:43,193 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]

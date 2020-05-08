@@ -1,7 +1,4 @@
-2019-12-24 06:27:19,425 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2019-12-24 06:29:07,026 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2019-12-24 06:37:34,762 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2019-12-24 06:37:42,637 ERROR: Exception on /user/id1 [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
+2020-05-08 14:15:56,506 ERROR: Exception on /item/1350 [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -15,43 +12,14 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask_login\utils.py", line 228, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 129, in user
-    following=following, followers=followers, posts=pagination_posts, avatar=user[8], coms=coms, id=user[4], pagination=pagination)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\templating.py", line 135, in render_template
-    context, ctx.app)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\templating.py", line 117, in _render
-    rv = template.render(context)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\Baraban\PycharmProjects\untitled2\app\templates\user.html", line 2, in top-level template code
-    {% import 'bootstrap/wtf.html' as wtf %}
-  File "C:\Users\Baraban\PycharmProjects\untitled2\app\templates\base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
-    {%- block html %}
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
-    {% block body -%}
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
-    {% block content -%}
-  File "C:\Users\Baraban\PycharmProjects\untitled2\app\templates\base.html", line 43, in block "content"
-    {% block app_content %}{% endblock %}
-  File "C:\Users\Baraban\PycharmProjects\untitled2\app\templates\user.html", line 11, in block "app_content"
-    {% if curren_user.id != id %}
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 430, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'curren_user' is undefined
-2019-12-24 06:38:49,561 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2019-12-24 06:38:54,033 ERROR: Exception on /user/id1 [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
+  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 42, in item_fw
+    [id])
+psycopg2.errors.InFailedSqlTransaction: ОШИБКА:  текущая транзакция прервана, команды до конца блока транзакции игнорируются
+
+2020-05-08 14:16:04,029 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-08 14:17:39,826 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-08 14:18:30,281 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-08 14:18:31,866 ERROR: Exception on /item/1350 [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -65,48 +33,88 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask_login\utils.py", line 228, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 129, in user
-    following=following, followers=followers, posts=pagination_posts, avatar=user[8], coms=coms, id=user[4], pagination=pagination)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\templating.py", line 135, in render_template
-    context, ctx.app)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\templating.py", line 117, in _render
-    rv = template.render(context)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 47, in item_fw
+    return render_template('submainitem.html', title=item[5], item=item)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\templating.py", line 134, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\loaders.py", line 125, in load
+    code = environment.compile(source, name, filename)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 591, in compile
+    self.handle_exception(exc_info, source_hint=source_hint)
   File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
     reraise(exc_type, exc_value, tb)
   File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "C:\Users\Baraban\PycharmProjects\untitled2\app\templates\user.html", line 2, in top-level template code
-    {% import 'bootstrap/wtf.html' as wtf %}
-  File "C:\Users\Baraban\PycharmProjects\untitled2\app\templates\base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
-    {%- block html %}
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
-    {% block body -%}
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
-    {% block content -%}
-  File "C:\Users\Baraban\PycharmProjects\untitled2\app\templates\base.html", line 43, in block "content"
-    {% block app_content %}{% endblock %}
-  File "C:\Users\Baraban\PycharmProjects\untitled2\app\templates\user.html", line 11, in block "app_content"
-    <p><a href="{{ url_for('main.delete_profile') }}">{{ _('Удалить из жизни') }}</a></p>
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\helpers.py", line 356, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\helpers.py", line 345, in url_for
-    force_external=external)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\werkzeug\routing.py", line 1776, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'main.delete_profile'. Did you forget to specify values ['id']?
-2019-12-24 06:39:30,102 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2019-12-24 06:42:01,213 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+  File "C:\Users\Baraban\PycharmProjects\untitled2\app\templates\submainitem.html", line 61, in template
+    <a href="{{ url_for('main.main'}}" title="" class="logo mar-4"> <img width="175" height="50" src="/static/images/logo/logo-dark.png" alt=""> </a>
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 497, in _parse
+    return Parser(self, source, name, encode_filename(filename)).parse()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 901, in parse
+    result = nodes.Template(self.subparse(), lineno=1)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 875, in subparse
+    add_data(self.parse_tuple(with_condexpr=True))
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 620, in parse_tuple
+    args.append(parse())
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 432, in parse_expression
+    return self.parse_condexpr()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 437, in parse_condexpr
+    expr1 = self.parse_or()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 450, in parse_or
+    left = self.parse_and()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 459, in parse_and
+    left = self.parse_not()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 470, in parse_not
+    return self.parse_compare()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 474, in parse_compare
+    expr = self.parse_math1()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 496, in parse_math1
+    left = self.parse_concat()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 507, in parse_concat
+    args = [self.parse_math2()]
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 517, in parse_math2
+    left = self.parse_pow()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 528, in parse_pow
+    left = self.parse_unary()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 547, in parse_unary
+    node = self.parse_postfix(node)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 676, in parse_postfix
+    node = self.parse_call(node)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 790, in parse_call
+    args.append(self.parse_expression())
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 432, in parse_expression
+    return self.parse_condexpr()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 437, in parse_condexpr
+    expr1 = self.parse_or()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 450, in parse_or
+    left = self.parse_and()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 459, in parse_and
+    left = self.parse_not()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 470, in parse_not
+    return self.parse_compare()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 474, in parse_compare
+    expr = self.parse_math1()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 496, in parse_math1
+    left = self.parse_concat()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 507, in parse_concat
+    args = [self.parse_math2()]
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 517, in parse_math2
+    left = self.parse_pow()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 528, in parse_pow
+    left = self.parse_unary()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 546, in parse_unary
+    node = self.parse_primary()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 564, in parse_primary
+    next(self.stream)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\lexer.py", line 359, in __next__
+    self.current = next(self._iter)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\lexer.py", line 562, in wrap
+    for lineno, token, value in stream:
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\lexer.py", line 690, in tokeniter
+    filename)
+jinja2.exceptions.TemplateSyntaxError: unexpected '}', expected ')'
