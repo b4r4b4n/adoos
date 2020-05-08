@@ -1,0 +1,106 @@
+2020-05-04 16:37:07,962 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 16:37:39,431 ERROR: Exception on / [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 26, in index
+    ult[index][8] = re.sub(r'[{}]', '', ul[8])
+  File "C:\Program Files\Python37\lib\re.py", line 192, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+TypeError: expected string or bytes-like object
+2020-05-04 16:37:39,436 ERROR: Exception on / [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 26, in index
+    ult[index][8] = re.sub(r'[{}]', '', ul[8])
+  File "C:\Program Files\Python37\lib\re.py", line 192, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+TypeError: expected string or bytes-like object
+2020-05-04 16:38:08,494 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 16:51:26,885 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 16:54:13,996 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 16:56:29,543 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 16:57:53,125 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 16:58:05,412 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 16:58:54,476 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 16:59:24,949 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:00:36,682 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:01:08,569 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:01:49,937 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:04:39,304 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:04:54,335 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:06:13,036 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:07:25,329 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:09:25,048 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:11:54,668 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:13:35,754 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:17:03,731 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:17:46,918 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:20:34,256 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:22:20,598 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:23:37,368 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:24:29,107 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:24:38,899 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:25:53,415 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:26:03,954 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:26:23,466 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:26:56,108 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:27:07,131 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:27:22,108 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:28:29,390 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:29:18,550 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:35:12,440 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:35:13,644 ERROR: Exception on / [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 33, in index
+    [user[4]])
+TypeError: 'function' object is not subscriptable
+2020-05-04 17:35:30,142 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:37:43,333 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:38:49,517 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:39:10,541 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:41:11,181 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:41:15,099 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:48:56,362 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:49:41,049 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:49:59,459 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:50:24,102 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:50:33,946 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:51:12,223 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:52:06,071 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:57:36,056 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:58:00,652 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 17:59:20,597 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]

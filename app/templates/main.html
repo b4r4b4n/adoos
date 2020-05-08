@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Ados | Aggregator of discounts of online stores </title>
+<meta name="keywords" content="" />
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Mobile view -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="./static/images/shoe.png">
+<link rel="stylesheet" type="text/css" href="./static/js/bootstrap/bootstrap.min.css">
+
+<!-- Google fonts  -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Yesteryear" rel="stylesheet">
+
+<!-- Template's stylesheets -->
+<link rel="stylesheet" href="./static/js/megamenu/stylesheets/screen.css">
+<link rel="stylesheet" href="./static/css/theme-default.css" type="text/css">
+<link rel="stylesheet" href="./static/js/loaders/stylesheets/screen.css">
+<link rel="stylesheet" href="./static/css/shop.css" type="text/css">
+<link rel="stylesheet" href="./static/fonts/font-awesome/css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" type="text/css" href="./static/fonts/Simple-Line-Icons-Webfont/simple-line-icons.css" media="screen" />
+<link rel="stylesheet" href="./static/fonts/et-line-font/et-line-font.css">
+<link rel="stylesheet" type="text/css" href="./static/js/revolution-slider/css/settings.css">
+<link rel="stylesheet" type="text/css" href="./static/js/revolution-slider/css/layers.css">
+<link rel="stylesheet" type="text/css" href="./static/js/revolution-slider/css/navigation.css">
+<link href="./static/js/owl-carousel/owl.carousel.css" rel="stylesheet">
+<link href="./static/js/owl-carousel/owl.theme.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="./static/js/cubeportfolio/cubeportfolio.min.css">
+
+<!-- Template's stylesheets END -->
+
+<!-- Skin stylesheet -->
+
+</head>
+<body>
+<div class="over-loader loader-live">
+  <div class="loader">
+			<div class="loader-item style4">
+				<div class="cube1"></div>
+				<div class="cube2"></div>
+			</div>
+		</div>
+</div>
+<!--end loading-->
+<div class="wrapper-boxed">
+  <div class="site-wrapper">
+    <div class="col-md-12 nopadding">
+      <div class="header-section white dark-dropdowns style1 links-dark pin-style">
+        <div class="container">
+          <div class="mod-menu">
+            <div class="row">
+              <div class="col-sm-8" >
+                <div class="main-nav">
+                    <a href="{{ url_for('main.index')}}" title="" class="logo mar-4"> <img width="175" height="50" src="./static/images/logo/logo-dark.png" alt=""> </a>
+                  <ul class="nav navbar-nav top-nav">
+                    <li class="search-parent"> <a href="javascript:void(0)" title=""><i aria-hidden="true" class="fa fa-search"></i></a>
+                      <div class="search-box">
+                        <div class="content">
+                          <div class="form-control">
+                            <input type="text" placeholder="Type to search" />
+                            <a href="#" class="search-btn"><i aria-hidden="true" class="fa fa-search"></i></a> </div>
+                          <a href="#" class="close-btn">x</a> </div>
+                      </div>
+                    </li>
+                    <li class="visible-xs menu-icon"> <a href="javascript:void(0)" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false"> <i aria-hidden="true" class="fa fa-bars"></i> </a> </li>
+                  </ul>
+                  <div id="menu" class="collapse">
+                    <ul class="nav navbar-nav">
+                      <li> <a href="page-about2.html">Women</a> <span class="arrow"></span>
+                        <ul class="dm-align-2">
+                          <li> <a href="#">Одежда <span class="sub-arrow dark pull-right"><i class="fa fa-angle-right" aria-hidden="true"></i></span> </a> <span class="arrow"></span>
+                            <ul>
+                              <li> <a href="page-about2.html">Куртки и пальто</a> </li>
+                              <li> <a href="page-about2.html">Худи</a> </li>
+                              <li> <a href="page-about3.html">Футболки</a> </li>
+                              <li> <a href="page-about2.html">Свитеры(Knitwear)</a> </li>
+                              <li> <a href="page-about3.html">Футболки с длинным рукавом</a> </li>
+                              <li> <a href="page-about4.html">Парки</a> </li>
+                              <li> <a href="page-about5.html">Жилеты</a> </li>
+                              <li> <a href="page-about5.html">Кофты</a> </li>
+                              <li> <a href="page-about5.html">Рубашки</a> </li>
+                              <li> <a href="page-about5.html">Бомберы</a> </li>
+                              <li> <a href="page-about5.html">Официальная одежда</a> </li>
+                              <li> <a href="page-about5.html">Штаны</a> </li>
+                              <li> <a href="page-about5.html">Шорты</a> </li>
+                              <li> <a href="page-about5.html">Нижнее белье</a> </li>
+                            </ul>
+                          </li>
+                          <li> <a href="#">Обувь <span class="sub-arrow dark pull-right"><i class="fa fa-angle-right" aria-hidden="true"></i></span> </a> <span class="arrow"></span>
+                            <ul>
+                              <li> <a href="page-services1.html">Ботинки и сапоги</a> </li>
+                              <li> <a href="page-services2.html">Обувь на шнуровке</a> </li>
+                              <li> <a href="page-services3.html">Туфли</a> </li>
+                              <li> <a href="page-services4.html">Слипоны</a> </li>
+                              <li> <a href="page-services4.html">Кеды</a> </li>
+                            </ul>
+                          </li>
+
+                          <li> <a href="#">Сумки и аксессуары <span class="sub-arrow dark pull-right"><i class="fa fa-angle-right" aria-hidden="true"></i></span> </a> <span class="arrow"></span>
+                            <ul>
+                              <li> <a href="page-team-classic.html">Сумки</a> </li>
+                              <li> <a href="page-team-parallax.html">Рюкзаки и поясные сумки</a> </li>
+                              <li> <a href="page-team-dark.html">Очки</a> </li>
+                              <li> <a href="page-team-creative.html">Украшения</a> </li>
+                              <li> <a href="page-team-creative.html">Часы</a> </li>
+                              <li> <a href="page-team-creative.html">Головные уборы</a> </li>
+                              <li> <a href="page-team-creative.html">Шарфы и платки</a> </li>
+                              <li> <a href="page-team-creative.html">Ремни</a> </li>
+                              <li> <a href="page-team-creative.html">Бумажники</a> </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                      <li> <a href="page-about4.html">Men</a>  <span class="arrow"></span>
+                        <ul class="dm-align-2">
+                          <li> <a href="#">Одежда <span class="sub-arrow dark pull-right"><i class="fa fa-angle-right" aria-hidden="true"></i></span> </a> <span class="arrow"></span>
+                            <ul>
+                              <li> <a href="page-about2.html">Куртки и пальто</a> </li>
+                              <li> <a href="page-about2.html">Худи</a> </li>
+                              <li> <a href="page-about3.html">Футболки</a> </li>
+                              <li> <a href="page-about2.html">Свитеры(Knitwear)</a> </li>
+                              <li> <a href="page-about3.html">Футболки с длинным рукавом</a> </li>
+                              <li> <a href="page-about4.html">Парки</a> </li>
+                              <li> <a href="page-about5.html">Жилеты</a> </li>
+                              <li> <a href="page-about5.html">Кофты</a> </li>
+                              <li> <a href="page-about5.html">Рубашки</a> </li>
+                              <li> <a href="page-about5.html">Бомберы</a> </li>
+                              <li> <a href="page-about5.html">Официальная одежда</a> </li>
+                              <li> <a href="page-about5.html">Штаны</a> </li>
+                              <li> <a href="page-about5.html">Шорты</a> </li>
+                              <li> <a href="page-about5.html">Нижнее белье</a> </li>
+                            </ul>
+                          </li>
+                          <li> <a href="#">Обувь <span class="sub-arrow dark pull-right"><i class="fa fa-angle-right" aria-hidden="true"></i></span> </a> <span class="arrow"></span>
+                            <ul>
+                              <li> <a href="page-services1.html">Ботинки и сапоги</a> </li>
+                              <li> <a href="page-services2.html">Обувь на шнуровке</a> </li>
+                              <li> <a href="page-services3.html">Туфли</a> </li>
+                              <li> <a href="page-services4.html">Слипоны</a> </li>
+                              <li> <a href="page-services4.html">Кеды</a> </li>
+                            </ul>
+                          </li>
+
+                          <li> <a href="#">Сумки и аксессуары <span class="sub-arrow dark pull-right"><i class="fa fa-angle-right" aria-hidden="true"></i></span> </a> <span class="arrow"></span>
+                            <ul>
+                              <li> <a href="page-team-classic.html">Сумки</a> </li>
+                              <li> <a href="page-team-parallax.html">Рюкзаки и поясные сумки</a> </li>
+                              <li> <a href="page-team-dark.html">Очки</a> </li>
+                              <li> <a href="page-team-creative.html">Украшения</a> </li>
+                              <li> <a href="page-team-creative.html">Часы</a> </li>
+                              <li> <a href="page-team-creative.html">Головные уборы</a> </li>
+                              <li> <a href="page-team-creative.html">Шарфы и платки</a> </li>
+                              <li> <a href="page-team-creative.html">Ремни</a> </li>
+                              <li> <a href="page-team-creative.html">Бумажники</a> </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--end menu-->
+
+    </div>
+    <!--end menu-->
+
+    <div class="clearfix"></div>
+
+     <section class="section-side-image clearfix">
+      <div class="img-holder col-md-12 col-sm-12 col-xs-12">
+        <div class="background-imgholder" ><img src="./static/images/1.jpg" alt=""/> </div>
+      </div>
+      <div class="container-fluid" >
+        <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12 clearfix nopadding">
+        <div class="header-inner less-height">
+       <div class="overlay">
+       <div class="text text-center">
+    <h3 class="uppercase text-white less-mar-1 title">Your fashion search starts here.</h3>
+    <h6 class="uppercase text-white sub-title">Get Many More Features</h6>
+    </div>
+       </div>
+        </div></div>
+        </div>
+      </div>
+    </section>
+    <div class=" clearfix"></div>
+    <!--end header section -->
+  <!--end section-->
+    {% if paga == 1 %}
+    <section class="sec-padding">
+      <div class="container">
+        <div class="row no-gutter">
+
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="sp-top-banner-1">
+            <div class="img-box">
+            <div class="overlay">
+            <h1 class="text-white font-weight-6 less-mar-1">Women's</h1>
+            <h2 class="text-white font-weight-3">Collection</h2>
+
+            <div class="clearfix"></div>
+                <br/>
+                <a class="btn btn-border white uppercase btn-small" href="#">Shop Now</a>
+
+            </div>
+            <img src="./static/images/women.png" alt=""/>
+            </div>
+            </div>
+          </div>
+          <!--end item-->
+
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="sp-top-banner-1">
+            <div class="img-box">
+            <div class="overlay">
+            <h1 class="text-white font-weight-6 less-mar-1">Men's</h1>
+            <h2 class="text-white font-weight-3">Collection</h2>
+
+            <div class="clearfix"></div>
+                <br/>
+                <a class="btn btn-border white uppercase btn-small" href="#">Shop Now</a>
+
+            </div>
+            <img src="./static/images/men.png" alt=""/>
+            </div>
+            </div>
+          </div>
+          <!--end item-->
+          <!--end item-->
+
+
+        </div>
+      </div>
+    </section>
+    <div class="clearfix"></div>
+    {% endif %}
+    <!-- end section -->
+
+     <section class="sec-bpadding-2">
+  <div class="container">
+  <div class="row">
+
+  <div class="col-md-3">
+
+  <div class="sidebar-item-holder">
+                <h5 class=" font-weight-5 sp-sb-title">Search</h5>
+                <input type="text" name="name" class="sp-news-letter" placeholder="Search" maxlength="100" />
+              </div>
+              <!--end item holder-->
+
+     <div class="sidebar-item-holder">
+                <h5 class=" font-weight-5 sp-sb-title">Categories</h5>
+                <ul class="sp-sb-links">
+                  <div>
+                      <div class="less">Gender</div>
+                      <div class="more" style="display:none;"><input type="radio" name="gender" id="AllG"><label for="AllG"> All </label><br>
+                      <input type="radio" name="gender" id="WomG"><label for="WomG"> Women's </label><br>
+                      <input type="radio" name="gender" id="MenG"><label for="MenG"> Men's </label>
+                      </div>
+                  </div>
+                  <div>
+                      <div class="less">Category</div>
+                      <div class="more" style="display:none;"><input type="radio" name="Category" id="ClCat"><label for="ClCat"> Одежда </label><br>
+                      <input type="radio" name="Category" id="ShCat"><label for="ShCat"> Обувь </label><br>
+                      <input type="radio" name="Category" id="BgCat"><label for="BgCat"> Сумки и аксессуары </label></div>
+                  </div>
+                  <div>
+                        <div class="less">Sale</div>
+                        <div class="more" style="display:none;">
+                        <input type="radio" name="saleRadio" id="20per"><label for="20per"> 20% or more </label><br>
+                        <input type="radio" name="saleRadio" id="50per"><label for="50per"> 50% or more </label><br>
+                        <input type="radio" name="saleRadio" id="70per"><label for="70per"> 70% or more </label>
+                        </div>
+                  </div>
+                  <div>
+                        <div class="less">Price</div>
+                        <div class="more" style="display:none;"><p>биба</p><p>боба</p><p>пук</p></div>
+                  </div>
+                  <div>
+                        <div class="less">Brand</div>
+                        <div class="more" style="display:none;"><p>биба</p></div>
+                  </div>
+                  <div>
+                        <div class="less">Store</div>
+                        <div class="more" style="display:none;"><p>биба</p></div>
+                  </div>
+                </ul>
+              </div>
+              <!--end item holder-->
+
+
+     <div class="sidebar-item-holder">
+                <h5 class=" font-weight-5 sp-sb-title">Featured Products</h5>
+                <div class="col-md-12 col-sm-12 col-xs-12 nopadding">
+                  <div class="imgbox-small left"> <img src="http://via.placeholder.com/80x80" alt="" class="img-responsive"/></div>
+                  <div class="text-box-right">
+                    <h6 class=" nopadding"><a href="#" class="text-hover-gyellow">Casual Shoes</a></h6>
+                    <div class="blog-post-info padding-top-1"> <span> By Benjamin</span> <span> 15 Comments</span> </div>
+                  </div>
+                </div>
+                <!--end post-->
+
+                <div class="divider-line solid light margin"></div>
+                <div class="col-md-12 col-sm-12 col-xs-12 nopadding">
+                  <div class="imgbox-small left"> <img src="http://via.placeholder.com/80x80" alt="" class="img-responsive"/></div>
+                  <div class="text-box-right">
+                    <h6 class=" nopadding"><a href="#" class="text-hover-gyellow">Men's Casuals</a></h6>
+                    <div class="blog-post-info padding-top-1"> <span> By Benjamin</span> <span> 15 Comments</span> </div>
+                  </div>
+                </div>
+                <!--end post-->
+
+                <div class="divider-line solid light margin"></div>
+                <div class="col-md-12 col-sm-12 col-xs-12 nopadding">
+                  <div class="imgbox-small left"> <img src="http://via.placeholder.com/80x80" alt="" class="img-responsive"/></div>
+                  <div class="text-box-right">
+                    <h6 class=" nopadding"><a href="#" class="text-hover-gyellow">Watches</a></h6>
+                    <div class="blog-post-info padding-top-1"> <span> By Benjamin</span> <span> 15 Comments</span> </div>
+                  </div>
+                </div>
+                <!--end post-->
+              </div>
+              <!--end item holder-->
+
+  </div>
+  <!--end right column -->
+  <div class="pagination__wrapper">
+      {{ pagination.links }}
+  </div>
+  <div class="col-md-9" id="itemosi">
+
+
+      {% for item in items %}
+          {% include '_post.html' %}
+      {% endfor %}
+          <!--end item-->
+      {{ pagination.links }}
+      {{ pagination.info }}
+  </div>
+
+  <!--end left column -->
+
+  </div>
+  </div>
+  </section>
+<div class="clearfix"></div>
+  <!-- end section -->
+
+      <section>
+  <div class="container-fluid">
+  <div class="row no-gutter">
+
+<div class="col-md-3">
+    <div class="sp-feature-box-5">
+        <div class="img-box">
+            <div class="overlay">
+                <h4 class="title text-white font-weight-5">Fashion Bags<br/>Collections</h4>
+                <div class="clearfix"></div>
+                <br/>
+                <a class="btn btn-white btn-medium uppercase" href="#"> Shop Now <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+            </div>
+            <img src="http://via.placeholder.com/800x700" alt="" class="img-responsive"/>
+        </div>
+    </div>
+</div>
+  <!--end item-->
+
+
+<div class="col-md-3">
+  <div class="sp-feature-box-5">
+<div class="img-box">
+<div class="overlay">
+<h4 class="title text-white font-weight-5">Women's Casual<br/>Shoes</h4>
+<div class="clearfix"></div>
+<br/>
+<a class="btn btn-white btn-medium uppercase" href="#"> Shop Now <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+</div>
+<img src="http://via.placeholder.com/800x700" alt="" class="img-responsive"/>
+</div>
+  </div>
+  </div>
+  <!--end item-->
+
+
+  <div class="col-md-3">
+  <div class="sp-feature-box-5">
+<div class="img-box">
+<div class="overlay">
+<h4 class="title text-white font-weight-5">Women's Casual<br/>Collections</h4>
+<div class="clearfix"></div>
+<br/>
+<a class="btn btn-white btn-medium uppercase" href="#"> Shop Now <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+</div>
+<img src="http://via.placeholder.com/800x700" alt="" class="img-responsive"/>
+</div>
+  </div>
+  </div>
+  <!--end item-->
+
+
+  <div class="col-md-3">
+  <div class="sp-feature-box-5">
+<div class="img-box">
+<div class="overlay">
+<h4 class="title text-white font-weight-5">Men's Shoes<br/>Collections</h4>
+<div class="clearfix"></div>
+<br/>
+<a class="btn btn-white btn-medium uppercase" href="#"> Shop Now <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+</div>
+<img src="http://via.placeholder.com/800x700" alt="" class="img-responsive"/>
+</div>
+  </div>
+  </div>
+  <!--end item-->
+
+
+
+  </div>
+  </div>
+  </section>
+<div class="clearfix"></div>
+  <!-- end section -->
+
+
+
+    <a href="" class="scrollup">Scroll to top</a><!-- end scroll to top of the page-->
+
+  </div>
+  <!--end site wrapper-->
+</div>
+<!--end wrapper boxed-->
+
+<!-- Scripts -->
+<script src="./static/js/jquery/jquery.js"></script>
+<script src="./static/js/bootstrap/bootstrap.min.js"></script>
+
+<script src="./static/js/less/less.min.js" data-env="development"></script>
+
+<!-- Scripts END -->
+
+<!-- Template scripts -->
+<script src="./static/js/megamenu/js/main.js"></script>
+<script src="./static/js/owl-carousel/owl.carousel.js"></script>
+<script src="./static/js/owl-carousel/custom.js"></script>
+<script src="./static/js/owl-carousel/owl.carousel.js"></script>
+<script src="./static/js/owl-carousel/custom.js"></script>
+<script type="text/javascript" src="./static/js/cubeportfolio/jquery.cubeportfolio.min.js"></script>
+<script type="text/javascript" src="./static/js/cubeportfolio/main-mosaic3.js"></script>
+
+<!-- REVOLUTION JS FILES -->
+<script type="text/javascript" src="./static/js/revolution-slider/js/jquery.themepunch.tools.min.js"></script>
+<script type="text/javascript" src="./static/js/revolution-slider/js/jquery.themepunch.revolution.min.js"></script>
+<!-- SLIDER REVOLUTION 5.0 EXTENSIONS
+(Load Extensions only on Local File Systems !
+The following part can be removed on Server for On Demand Loading) -->
+<script type="text/javascript" src="./static/js/revolution-slider/js/extensions/revolution.extension.actions.min.js"></script>
+<script type="text/javascript" src="./static/js/revolution-slider/js/extensions/revolution.extension.carousel.min.js"></script>
+<script type="text/javascript" src="./static/js/revolution-slider/js/extensions/revolution.extension.kenburn.min.js"></script>
+<script type="text/javascript" src="./static/js/revolution-slider/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script type="text/javascript" src="./static/js/revolution-slider/js/extensions/revolution.extension.migration.min.js"></script>
+<script type="text/javascript" src="./static/js/revolution-slider/js/extensions/revolution.extension.navigation.min.js"></script>
+<script type="text/javascript" src="./static/js/revolution-slider/js/extensions/revolution.extension.parallax.min.js"></script>
+<script type="text/javascript" src="./static/js/revolution-slider/js/extensions/revolution.extension.slideanims.min.js"></script>
+<script type="text/javascript" src="./static/js/revolution-slider/js/extensions/revolution.extension.video.min.js"></script>
+<script type="text/javascript">
+	var tpj=jQuery;
+	var revapi4;
+	tpj(document).ready(function() {
+	if(tpj("#rev_slider").revolution == undefined){
+	revslider_showDoubleJqueryError("#rev_slider");
+	}else{
+		revapi4 = tpj("#rev_slider").show().revolution({
+		sliderType:"standard",
+		jsFileLocation:"js/revolution-slider/js/",
+		sliderLayout:"auto",
+		dottedOverlay:"none",
+		delay:9000,
+		navigation: {
+		keyboardNavigation:"off",
+		keyboard_direction: "horizontal",
+		mouseScrollNavigation:"off",
+		onHoverStop:"off",
+		arrows: {
+		style:"erinyen",
+		enable:true,
+		hide_onmobile:true,
+		hide_under:778,
+		hide_onleave:true,
+		hide_delay:200,
+		hide_delay_mobile:1200,
+		tmp:'',
+		left: {
+		h_align:"left",
+		v_align:"center",
+		h_offset:80,
+		v_offset:0
+		},
+		right: {
+		h_align:"right",
+		v_align:"center",
+		h_offset:80,
+		v_offset:0
+		}
+		}
+		,
+		touch:{
+		touchenabled:"on",
+		swipe_threshold: 75,
+		swipe_min_touches: 1,
+		swipe_direction: "horizontal",
+		drag_block_vertical: false
+	}
+	,
+
+
+
+	},
+		viewPort: {
+		enable:true,
+		outof:"pause",
+		visible_area:"80%"
+	},
+
+	responsiveLevels:[1240,1024,778,480],
+	gridwidth:[1240,1024,778,480],
+	gridheight:[650,640,1300,820],
+	lazyType:"smart",
+		parallax: {
+		type:"mouse",
+		origo:"slidercenter",
+		speed:2000,
+		levels:[2,3,4,5,6,7,12,16,10,50],
+		},
+	shadow:0,
+	spinner:"off",
+	stopLoop:"off",
+	stopAfterLoops:-1,
+	stopAtSlide:-1,
+	shuffle:"off",
+	autoHeight:"off",
+	hideThumbsOnMobile:"off",
+	hideSliderAtLimit:0,
+	hideCaptionAtLimit:0,
+	hideAllCaptionAtLilmit:0,
+	disableProgressBar:"on",
+	debugMode:false,
+		fallbacks: {
+		simplifyAll:"off",
+		nextSlideOnWindowFocus:"off",
+		disableFocusListener:false,
+		}
+	});
+	}
+	});	/*ready*/
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+$(".less").click(function(){
+$(this).parent().children(".more").slideToggle();
+});
+});
+</script>
+
+<script>
+    $(window).load(function(){
+      setTimeout(function(){
+
+        $('.loader-live').fadeOut();
+      },1000);
+    })
+
+  </script>
+<script src="./static/js/functions/functions.js"></script>
+</body>
+</html>

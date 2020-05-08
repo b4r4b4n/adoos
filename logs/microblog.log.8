@@ -1,0 +1,106 @@
+2020-05-04 19:14:52,489 ERROR: Exception on / [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 30, in index
+    page, per_page, offset = get_page_args(page_parameter='page', per_page_name='per_page')
+TypeError: get_page_args() got an unexpected keyword argument 'per_page_name'
+2020-05-04 19:15:46,426 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 19:15:51,640 ERROR: Exception on / [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 30, in index
+    page, per_page, offset = get_page_args(page_parameter='page', per_page_parameter=['PER_PAGE_PARAMETER'])
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask_paginate\__init__.py", line 187, in get_page_args
+    per_page = args.get(per_page_name)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\werkzeug\datastructures.py", line 301, in get
+    rv = self[key]
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\werkzeug\datastructures.py", line 427, in __getitem__
+    if key in self:
+TypeError: unhashable type: 'list'
+2020-05-04 19:23:59,902 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 19:27:15,946 ERROR: Exception on / [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 30, in index
+    page, per_page, offset = get_page_args(page_parameter='page', per_page_parameter=['PER_PAGE_PARAMETER'])
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask_paginate\__init__.py", line 187, in get_page_args
+    per_page = args.get(per_page_name)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\werkzeug\datastructures.py", line 301, in get
+    rv = self[key]
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\werkzeug\datastructures.py", line 427, in __getitem__
+    if key in self:
+TypeError: unhashable type: 'list'
+2020-05-04 19:27:38,931 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 19:28:45,254 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-04 19:29:14,785 ERROR: Exception on / [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 30, in index
+    page, per_page, offset = get_page_args(page_parameter='page', per_page_parameter=9)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask_paginate\__init__.py", line 189, in get_page_args
+    per_page = current_app.config.get(per_page_name.upper(), 10)
+AttributeError: 'int' object has no attribute 'upper'
+2020-05-04 19:29:14,786 ERROR: Exception on / [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 30, in index
+    page, per_page, offset = get_page_args(page_parameter='page', per_page_parameter=9)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask_paginate\__init__.py", line 189, in get_page_args
+    per_page = current_app.config.get(per_page_name.upper(), 10)
+AttributeError: 'int' object has no attribute 'upper'
+2020-05-04 19:29:56,235 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
