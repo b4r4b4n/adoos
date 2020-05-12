@@ -366,7 +366,8 @@
   position: absolute;
   right: 100px;
   top: -2px;
-  color: #070607;
+  background: rgba(0, 0, 0, 0);
+  border-color: #0000;
 }
 .header-section.dark-dropdowns ul li.search-parent .search-box .form-control .search-btn {
   color: #fff;
@@ -529,6 +530,9 @@
 	border-bottom:1px solid #1f1f1f;
 }
 .header-section.style1 ul li a {
+  padding: 35px 15px;
+}
+.header-section.style1 ul li button {
   padding: 35px 15px;
 }
 .header-section.style1 ul li a.dark {

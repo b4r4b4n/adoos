@@ -12,8 +12,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Favicon -->
-<link rel="shortcut icon" href="./static/images/shoe.png">
-<link rel="stylesheet" type="text/css" href="./static/js/bootstrap/bootstrap.min.css">
+<link rel="shortcut icon" href="/static/images/shoe.png">
+<link rel="stylesheet" type="text/css" href="/static/js/bootstrap/bootstrap.min.css">
 
 <!-- Google fonts  -->
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
@@ -21,19 +21,19 @@
 <link href="https://fonts.googleapis.com/css?family=Yesteryear" rel="stylesheet">
 
 <!-- Template's stylesheets -->
-<link rel="stylesheet" href="./static/js/megamenu/stylesheets/screen.css">
-<link rel="stylesheet" href="./static/css/theme-default.css" type="text/css">
-<link rel="stylesheet" href="./static/js/loaders/stylesheets/screen.css">
-<link rel="stylesheet" href="./static/css/shop.css" type="text/css">
-<link rel="stylesheet" href="./static/fonts/font-awesome/css/font-awesome.min.css" type="text/css">
-<link rel="stylesheet" type="text/css" href="./static/fonts/Simple-Line-Icons-Webfont/simple-line-icons.css" media="screen" />
-<link rel="stylesheet" href="./static/fonts/et-line-font/et-line-font.css">
-<link rel="stylesheet" type="text/css" href="./static/js/revolution-slider/css/settings.css">
-<link rel="stylesheet" type="text/css" href="./static/js/revolution-slider/css/layers.css">
-<link rel="stylesheet" type="text/css" href="./static/js/revolution-slider/css/navigation.css">
-<link href="./static/js/owl-carousel/owl.carousel.css" rel="stylesheet">
-<link href="./static/js/owl-carousel/owl.theme.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="./static/js/cubeportfolio/cubeportfolio.min.css">
+<link rel="stylesheet" href="/static/js/megamenu/stylesheets/screen.css">
+<link rel="stylesheet" href="/static/css/theme-default.css" type="text/css">
+<link rel="stylesheet" href="/static/js/loaders/stylesheets/screen.css">
+<link rel="stylesheet" href="/static/css/shop.css" type="text/css">
+<link rel="stylesheet" href="/static/fonts/font-awesome/css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" type="text/css" href="/static/fonts/Simple-Line-Icons-Webfont/simple-line-icons.css" media="screen" />
+<link rel="stylesheet" href="/static/fonts/et-line-font/et-line-font.css">
+<link rel="stylesheet" type="text/css" href="/static/js/revolution-slider/css/settings.css">
+<link rel="stylesheet" type="text/css" href="/static/js/revolution-slider/css/layers.css">
+<link rel="stylesheet" type="text/css" href="/static/js/revolution-slider/css/navigation.css">
+<link href="/static/js/owl-carousel/owl.carousel.css" rel="stylesheet">
+<link href="/static/js/owl-carousel/owl.theme.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/static/js/cubeportfolio/cubeportfolio.min.css">
 
 <!-- Template's stylesheets END -->
 
@@ -59,45 +59,46 @@
             <div class="row">
               <div class="col-sm-8" >
                 <div class="main-nav">
-                    <a href="{{ url_for('main.index')}}" title="" class="logo mar-4"> <img width="175" height="50" src="./static/images/logo/logo-dark.png" alt=""> </a>
+                    <a href="{{ url_for('main.index')}}" title="" class="logo mar-4"> <img width="175" height="50" src="/static/images/logo/logo-dark.png" alt=""> </a>
                   <ul class="nav navbar-nav top-nav">
                     <li class="search-parent"> <a href="javascript:void(0)" title=""><i aria-hidden="true" class="fa fa-search"></i></a>
                       <div class="search-box">
                         <div class="content">
                           <div class="form-control">
-                            <input type="text" placeholder="Type to search" />
-                            <a href="#" class="search-btn"><i aria-hidden="true" class="fa fa-search"></i></a> </div>
-                          <a href="#" class="close-btn">x</a> </div>
+                              <form action="/search" >
+                                <input type="search" name="q"  placeholder="Type to search" />
+                                <button type="submit" class="search-btn"><i aria-hidden="true" class="fa fa-search"></i></button> </div>
+                              </form>
                       </div>
                     </li>
                     <li class="visible-xs menu-icon"> <a href="javascript:void(0)" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false"> <i aria-hidden="true" class="fa fa-bars"></i> </a> </li>
                   </ul>
                   <div id="menu" class="collapse">
                     <ul class="nav navbar-nav">
-                      <li> <a href="page-about2.html">Women</a> <span class="arrow"></span>
+                        <li> <a href="{{ url_for('main.shopg', gender='women') }}">Women </a><span class="arrow"></span>
                         <ul class="dm-align-2">
                           <li> <a href="#">Одежда <span class="sub-arrow dark pull-right"><i class="fa fa-angle-right" aria-hidden="true"></i></span> </a> <span class="arrow"></span>
                             <ul>
-                              <li> <a href="page-about2.html">Куртки и пальто</a> </li>
-                              <li> <a href="page-about2.html">Худи</a> </li>
-                              <li> <a href="page-about3.html">Футболки</a> </li>
-                              <li> <a href="page-about2.html">Свитеры(Knitwear)</a> </li>
-                              <li> <a href="page-about3.html">Футболки с длинным рукавом</a> </li>
-                              <li> <a href="page-about4.html">Парки</a> </li>
-                              <li> <a href="page-about5.html">Жилеты</a> </li>
-                              <li> <a href="page-about5.html">Кофты</a> </li>
-                              <li> <a href="page-about5.html">Рубашки</a> </li>
-                              <li> <a href="page-about5.html">Бомберы</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='women', type='Jackets', subtype='Coats') }}">Куртки и пальто</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='women', type='Hoodies') }}">Худи</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='women', type='T-shirts') }}">Футболки</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='women', type='Knitwear') }}">Свитеры</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='women', type='Long-sleeve Tees') }}">Футболки с длинным рукавом</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='women', type='Parkas') }}">Парки</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='women', type='Vests') }}">Жилеты</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='women', type='Sweats') }}">Кофты</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='women', type='Shirts', subtype='Polo Shirts') }}">Рубашки</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='women', type='Bombers') }}">Бомберы</a> </li>
                               <li> <a href="page-about5.html">Официальная одежда</a> </li>
-                              <li> <a href="page-about5.html">Штаны</a> </li>
-                              <li> <a href="page-about5.html">Шорты</a> </li>
-                              <li> <a href="page-about5.html">Нижнее белье</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='women', type='Pants', subtype ='Jeans') }}">Штаны</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='women', type='Shorts') }}">Шорты</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='women', type='Socks') }}">Нижнее белье</a> </li>
                             </ul>
                           </li>
                           <li> <a href="#">Обувь <span class="sub-arrow dark pull-right"><i class="fa fa-angle-right" aria-hidden="true"></i></span> </a> <span class="arrow"></span>
                             <ul>
-                              <li> <a href="page-services1.html">Ботинки и сапоги</a> </li>
-                              <li> <a href="page-services2.html">Обувь на шнуровке</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='women', type='Boots') }}">Ботинки и сапоги</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='women', type='Sneakers') }}">Кроссовки</a> </li>
                               <li> <a href="page-services3.html">Туфли</a> </li>
                               <li> <a href="page-services4.html">Слипоны</a> </li>
                               <li> <a href="page-services4.html">Кеды</a> </li>
@@ -106,43 +107,43 @@
 
                           <li> <a href="#">Сумки и аксессуары <span class="sub-arrow dark pull-right"><i class="fa fa-angle-right" aria-hidden="true"></i></span> </a> <span class="arrow"></span>
                             <ul>
-                              <li> <a href="page-team-classic.html">Сумки</a> </li>
-                              <li> <a href="page-team-parallax.html">Рюкзаки и поясные сумки</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='women', type='Bags') }}">Сумки</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='women', type='Bags') }}">Рюкзаки и поясные сумки</a> </li>
                               <li> <a href="page-team-dark.html">Очки</a> </li>
-                              <li> <a href="page-team-creative.html">Украшения</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='women', type='Souvenirs') }}">Украшения и аксессуары</a> </li>
                               <li> <a href="page-team-creative.html">Часы</a> </li>
-                              <li> <a href="page-team-creative.html">Головные уборы</a> </li>
-                              <li> <a href="page-team-creative.html">Шарфы и платки</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='women', type='Hats') }}">Головные уборы</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='women', type='Scarves') }}">Шарфы и платки</a> </li>
                               <li> <a href="page-team-creative.html">Ремни</a> </li>
                               <li> <a href="page-team-creative.html">Бумажники</a> </li>
                             </ul>
                           </li>
                         </ul>
                       </li>
-                      <li> <a href="page-about4.html">Men</a>  <span class="arrow"></span>
+                      <li> <a href="{{ url_for('main.shopg', gender='men') }}">Men</a>  <span class="arrow"></span>
                         <ul class="dm-align-2">
                           <li> <a href="#">Одежда <span class="sub-arrow dark pull-right"><i class="fa fa-angle-right" aria-hidden="true"></i></span> </a> <span class="arrow"></span>
                             <ul>
-                              <li> <a href="page-about2.html">Куртки и пальто</a> </li>
-                              <li> <a href="page-about2.html">Худи</a> </li>
-                              <li> <a href="page-about3.html">Футболки</a> </li>
-                              <li> <a href="page-about2.html">Свитеры(Knitwear)</a> </li>
-                              <li> <a href="page-about3.html">Футболки с длинным рукавом</a> </li>
-                              <li> <a href="page-about4.html">Парки</a> </li>
-                              <li> <a href="page-about5.html">Жилеты</a> </li>
-                              <li> <a href="page-about5.html">Кофты</a> </li>
-                              <li> <a href="page-about5.html">Рубашки</a> </li>
-                              <li> <a href="page-about5.html">Бомберы</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='men', type='Jackets', subtype='Coats') }}">Куртки и пальто</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='men', type='Hoodies') }}">Худи</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='men', type='T-shirts') }}">Футболки</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='men', type='Knitwear') }}">Свитеры</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='men', type='Long-sleeve Tees') }}">Футболки с длинным рукавом</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='men', type='Parkas') }}">Парки</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='men', type='Vests') }}">Жилеты</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='men', type='Sweats') }}">Кофты</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='men', type='Shirts', subtype='Polo Shirts') }}">Рубашки</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='men', type='Bombers') }}">Бомберы</a> </li>
                               <li> <a href="page-about5.html">Официальная одежда</a> </li>
-                              <li> <a href="page-about5.html">Штаны</a> </li>
-                              <li> <a href="page-about5.html">Шорты</a> </li>
-                              <li> <a href="page-about5.html">Нижнее белье</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='men', type='Pants', subtype ='Jeans') }}">Штаны</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='men', type='Shorts') }}">Шорты</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='men', type='Socks') }}">Нижнее белье</a> </li>
                             </ul>
                           </li>
                           <li> <a href="#">Обувь <span class="sub-arrow dark pull-right"><i class="fa fa-angle-right" aria-hidden="true"></i></span> </a> <span class="arrow"></span>
                             <ul>
-                              <li> <a href="page-services1.html">Ботинки и сапоги</a> </li>
-                              <li> <a href="page-services2.html">Обувь на шнуровке</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='men', type='Boots') }}">Ботинки и сапоги</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='men', type='Sneakers') }}">Кроссовки</a> </li>
                               <li> <a href="page-services3.html">Туфли</a> </li>
                               <li> <a href="page-services4.html">Слипоны</a> </li>
                               <li> <a href="page-services4.html">Кеды</a> </li>
@@ -151,13 +152,12 @@
 
                           <li> <a href="#">Сумки и аксессуары <span class="sub-arrow dark pull-right"><i class="fa fa-angle-right" aria-hidden="true"></i></span> </a> <span class="arrow"></span>
                             <ul>
-                              <li> <a href="page-team-classic.html">Сумки</a> </li>
-                              <li> <a href="page-team-parallax.html">Рюкзаки и поясные сумки</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='men', type='Bags') }}">Рюкзаки и поясные сумки</a> </li>
                               <li> <a href="page-team-dark.html">Очки</a> </li>
-                              <li> <a href="page-team-creative.html">Украшения</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='men', type='Souvenirs') }}">Украшения и аксессуары</a> </li>
                               <li> <a href="page-team-creative.html">Часы</a> </li>
-                              <li> <a href="page-team-creative.html">Головные уборы</a> </li>
-                              <li> <a href="page-team-creative.html">Шарфы и платки</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='men', type='Hats') }}">Головные уборы</a> </li>
+                              <li> <a href="{{ url_for('main.shopw', gender='men', type='Scarves') }}">Шарфы</a> </li>
                               <li> <a href="page-team-creative.html">Ремни</a> </li>
                               <li> <a href="page-team-creative.html">Бумажники</a> </li>
                             </ul>
@@ -181,7 +181,7 @@
 
      <section class="section-side-image clearfix">
       <div class="img-holder col-md-12 col-sm-12 col-xs-12">
-        <div class="background-imgholder" ><img src="./static/images/1.jpg" alt=""/> </div>
+        <div class="background-imgholder" ><img src="/static/images/1.jpg" alt=""/> </div>
       </div>
       <div class="container-fluid" >
         <div class="row">
@@ -200,7 +200,7 @@
     <div class=" clearfix"></div>
     <!--end header section -->
   <!--end section-->
-    {% if paga == 1 %}
+    {% if paga == 1 and chkindex %}
     <section class="sec-padding">
       <div class="container">
         <div class="row no-gutter">
@@ -214,10 +214,10 @@
 
             <div class="clearfix"></div>
                 <br/>
-                <a class="btn btn-border white uppercase btn-small" href="#">Shop Now</a>
+                <a class="btn btn-border white uppercase btn-small" href="{{ url_for('main.shopg', gender='women') }}">Shop Now</a>
 
             </div>
-            <img src="./static/images/women.png" alt=""/>
+            <img src="/static/images/women.png" alt=""/>
             </div>
             </div>
           </div>
@@ -232,10 +232,10 @@
 
             <div class="clearfix"></div>
                 <br/>
-                <a class="btn btn-border white uppercase btn-small" href="#">Shop Now</a>
+                <a class="btn btn-border white uppercase btn-small" href="{{ url_for('main.shopg', gender='men') }}">Shop Now</a>
 
             </div>
-            <img src="./static/images/men.png" alt=""/>
+            <img src="/static/images/men.png" alt=""/>
             </div>
             </div>
           </div>
@@ -297,6 +297,9 @@
                   <div>
                         <div class="less">Store</div>
                         <div class="more" style="display:none;"><p>биба</p></div>
+                  </div>
+                <div>
+                    <div align="center" class="less"><a href="#">Применить фильтр</a></div>
                   </div>
                 </ul>
               </div>
@@ -445,37 +448,36 @@
 <!--end wrapper boxed-->
 
 <!-- Scripts -->
-<script src="./static/js/jquery/jquery.js"></script>
-<script src="./static/js/bootstrap/bootstrap.min.js"></script>
-
-<script src="./static/js/less/less.min.js" data-env="development"></script>
+<script src="/static/js/jquery/jquery.js"></script>
+<script src="/static/js/bootstrap/bootstrap.min.js"></script>
+<script src="/static/js/less/less.min.js" data-env="development"></script>
 
 <!-- Scripts END -->
 
 <!-- Template scripts -->
-<script src="./static/js/megamenu/js/main.js"></script>
-<script src="./static/js/owl-carousel/owl.carousel.js"></script>
-<script src="./static/js/owl-carousel/custom.js"></script>
-<script src="./static/js/owl-carousel/owl.carousel.js"></script>
-<script src="./static/js/owl-carousel/custom.js"></script>
-<script type="text/javascript" src="./static/js/cubeportfolio/jquery.cubeportfolio.min.js"></script>
-<script type="text/javascript" src="./static/js/cubeportfolio/main-mosaic3.js"></script>
+<script src="/static/js/megamenu/js/main.js"></script>
+<script src="/static/js/owl-carousel/owl.carousel.js"></script>
+<script src="/static/js/owl-carousel/custom.js"></script>
+<script src="/static/js/owl-carousel/owl.carousel.js"></script>
+<script src="/static/js/owl-carousel/custom.js"></script>
+<script type="text/javascript" src="/static/js/cubeportfolio/jquery.cubeportfolio.min.js"></script>
+<script type="text/javascript" src="/static/js/cubeportfolio/main-mosaic3.js"></script>
 
 <!-- REVOLUTION JS FILES -->
-<script type="text/javascript" src="./static/js/revolution-slider/js/jquery.themepunch.tools.min.js"></script>
-<script type="text/javascript" src="./static/js/revolution-slider/js/jquery.themepunch.revolution.min.js"></script>
+<script type="text/javascript" src="/static/js/revolution-slider/js/jquery.themepunch.tools.min.js"></script>
+<script type="text/javascript" src="/static/js/revolution-slider/js/jquery.themepunch.revolution.min.js"></script>
 <!-- SLIDER REVOLUTION 5.0 EXTENSIONS
 (Load Extensions only on Local File Systems !
 The following part can be removed on Server for On Demand Loading) -->
-<script type="text/javascript" src="./static/js/revolution-slider/js/extensions/revolution.extension.actions.min.js"></script>
-<script type="text/javascript" src="./static/js/revolution-slider/js/extensions/revolution.extension.carousel.min.js"></script>
-<script type="text/javascript" src="./static/js/revolution-slider/js/extensions/revolution.extension.kenburn.min.js"></script>
-<script type="text/javascript" src="./static/js/revolution-slider/js/extensions/revolution.extension.layeranimation.min.js"></script>
-<script type="text/javascript" src="./static/js/revolution-slider/js/extensions/revolution.extension.migration.min.js"></script>
-<script type="text/javascript" src="./static/js/revolution-slider/js/extensions/revolution.extension.navigation.min.js"></script>
-<script type="text/javascript" src="./static/js/revolution-slider/js/extensions/revolution.extension.parallax.min.js"></script>
-<script type="text/javascript" src="./static/js/revolution-slider/js/extensions/revolution.extension.slideanims.min.js"></script>
-<script type="text/javascript" src="./static/js/revolution-slider/js/extensions/revolution.extension.video.min.js"></script>
+<script type="text/javascript" src="/static/js/revolution-slider/js/extensions/revolution.extension.actions.min.js"></script>
+<script type="text/javascript" src="/static/js/revolution-slider/js/extensions/revolution.extension.carousel.min.js"></script>
+<script type="text/javascript" src="/static/js/revolution-slider/js/extensions/revolution.extension.kenburn.min.js"></script>
+<script type="text/javascript" src="/static/js/revolution-slider/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script type="text/javascript" src="/static/js/revolution-slider/js/extensions/revolution.extension.migration.min.js"></script>
+<script type="text/javascript" src="/static/js/revolution-slider/js/extensions/revolution.extension.navigation.min.js"></script>
+<script type="text/javascript" src="/static/js/revolution-slider/js/extensions/revolution.extension.parallax.min.js"></script>
+<script type="text/javascript" src="/static/js/revolution-slider/js/extensions/revolution.extension.slideanims.min.js"></script>
+<script type="text/javascript" src="/static/js/revolution-slider/js/extensions/revolution.extension.video.min.js"></script>
 <script type="text/javascript">
 	var tpj=jQuery;
 	var revapi4;
@@ -585,6 +587,6 @@ $(this).parent().children(".more").slideToggle();
     })
 
   </script>
-<script src="./static/js/functions/functions.js"></script>
+<script src="/static/js/functions/functions.js"></script>
 </body>
 </html>
