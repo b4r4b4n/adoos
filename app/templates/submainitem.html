@@ -190,7 +190,7 @@
 
 <div class="full">
 <!-- first image is viewable to start -->
-<img src={{item[10][0]}}  alt=""/> </div>
+<img src={{item[10][0]}} width="600" height="600"  alt=""/> </div>
 
 
 <div class="previews">
@@ -217,7 +217,7 @@
 
 
 <div class="clearfix"></div>
-<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent mattis commyolk augue. Aliquam ornare hendrerit augue. Cras tellus. In pulvinar lectus a est. Curabitur eget orci. </p>
+<p>{% for x in description %} <li>{{ x }} <br> </li> {% endfor %} </p>
 <div class="clearfix"></div>
 <br/>
 <a class="btn btn-dark-3 btn-medium uppercase" href="{{item[2]}}" target="_blank">Link</a>
@@ -231,14 +231,6 @@
 <div class="pro-details"><span>Brand :</span> {{ item[4] }}</div>
 <div class="clearfix"></div>
 <br/><br/>
-<ul class="sp-sc-icons">
-              <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a class="active" href="#"><i class="fa fa-google-plus"></i></a></li>
-              <li><a href="#"><i class="fa fa-renren" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-            </ul>
-
 </div>
 <!--end right-->
 </div>

@@ -18,6 +18,29 @@ conn = conn()
 @bp.route('/index', methods=['GET', 'POST'])
 def index():
     cursor = conn.cursor()
+    argg = request.args
+    if argg and argg.get('page') is None:
+        gender = argg.get('gender')
+        category = argg.get('category')
+        discount = argg.get('discount')
+        minprice = argg.get('minprice')
+        maxprice = argg.get('maxprice')
+        brand = argg.get('brand')
+        store = argg.get('store')
+        if minprice > maxprice:
+            buf = maxprice
+            maxprice = minprice
+            minprice = buf
+        if gender:
+            if gender == 'women':
+                cursor.execute('SELECT * FROM ITEMS WHERE gender = %s or gender = %s', ['W','U'])
+                genderY = cursor.fetchall()
+            elif gender == 'men':
+                cursor.execute('SELECT * FROM ITEMS WHERE gender = %s or gender = %s', ['M', 'U'])
+                genderY = cursor.fetchall()
+            elif gender == 'all':
+                cursor.execute('SELECT * FROM ITEMS WHERE gender = %s', ['U'])
+                genderY = cursor.fetchall()
     cursor.execute('select * from ITEMS')
     items = cursor.fetchall()
     ult = convert_to_list(items)
@@ -26,10 +49,18 @@ def index():
     cursor.execute(
         'SELECT count(*) FROM ITEMS')
     total = cursor.fetchone()
+    cursor.execute(
+        'SELECT distinct(Brand) FROM ITEMS ORDER BY Brand ASC')
+    brands = cursor.fetchall()
+    cursor.execute(
+        'SELECT distinct(site) FROM ITEMS ORDER BY site ASC')
+    sites = cursor.fetchall()
+    cursor.execute('SELECT MAX(saleprice) FROM ITEMS;')
+    maxcost = cursor.fetchone()
     pagination_posts = ult[offset: offset + per_page]
     pagination = Pagination(page=page, total=total[0], record_name='items', per_page=per_page)
     chkindex = True
-    return render_template('main.html', items=pagination_posts, pagination=pagination, paga=page, chkindex=chkindex)
+    return render_template('main.html', items=pagination_posts, pagination=pagination, paga=page, chkindex=chkindex, brands=brands, sites=sites, maxcost=maxcost)
 
 
 @bp.route('/item/<id>', methods=['GET', 'POST'])
@@ -38,6 +69,8 @@ def item_fw(id):
     cursor.execute('select * from ITEMS where id = %s',
                    [id])
     tkitem = cursor.fetchone()
+    descr = re.sub(r'[\r]','',tkitem[12])
+    description = [x for x in descr.strip().split('\n') if x]
     item = list(tkitem)
     item[10] = re.sub(r'[{}]', '', item[10]).split(',')
     full = [it.replace('737x737', '1474x1474') for it in item[10]]
@@ -54,7 +87,8 @@ def item_fw(id):
         relateditems = random.sample(type, 4)
     kolvo = len(item[10])
     return render_template('submainitem.html', title=item[5], item=item, kolvo=kolvo, review=review, full=full,
-                           related=relateditems)
+                           related=relateditems, description=description)
+
 
 
 def convert_to_list(type):
@@ -117,6 +151,8 @@ def shopg(gender):
 @bp.route('/search', methods=['GET', 'POST'])
 def search():
     arg = request.args['q']
+    if arg == '':
+        return redirect(url_for('main.index'))
     cursor = conn.cursor()
     cursor.execute('SELECT * FROM ITEMS WHERE to_tsvector(BRAND) || to_tsvector(nameitem) || to_tsvector(typeitem) @@ plainto_tsquery(%s)', [arg])
     items = cursor.fetchall()
@@ -128,7 +164,8 @@ def search():
     total = cursor.fetchone()
     pagination_posts = ult[offset: offset + per_page]
     pagination = Pagination(page=page, total=total[0], record_name='items', per_page=per_page)
-    return render_template('main.html', items=pagination_posts, pagination=pagination, paga=page )
+    checksrch = True
+    return render_template('main.html', items=pagination_posts, pagination=pagination, paga=page, arg=arg, checksrch=checksrch )
 
 
 @bp.route('/edit_profile', methods=['GET', 'POST'])

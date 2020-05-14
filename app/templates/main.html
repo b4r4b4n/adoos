@@ -66,7 +66,7 @@
                         <div class="content">
                           <div class="form-control">
                               <form action="/search" >
-                                <input type="search" name="q"  placeholder="Type to search" />
+                                <input type="search" name="q" placeholder="Type to search" autocomplete="off" autocorrect="off"/>
                                 <button type="submit" class="search-btn"><i aria-hidden="true" class="fa fa-search"></i></button> </div>
                               </form>
                       </div>
@@ -257,50 +257,55 @@
   <div class="col-md-3">
 
   <div class="sidebar-item-holder">
-                <h5 class=" font-weight-5 sp-sb-title">Search</h5>
-                <input type="text" name="name" class="sp-news-letter" placeholder="Search" maxlength="100" />
-              </div>
-              <!--end item holder-->
+        <h5 class=" font-weight-5 sp-sb-title">Search</h5>
+        <input type="text" name="name" class="sp-news-letter" placeholder="Search" maxlength="100" />
+  </div>
+  <!--end item holder-->
 
-     <div class="sidebar-item-holder">
+        <div class="sidebar-item-holder">
                 <h5 class=" font-weight-5 sp-sb-title">Categories</h5>
                 <ul class="sp-sb-links">
+                <form>
                   <div>
                       <div class="less">Gender</div>
-                      <div class="more" style="display:none;"><input type="radio" name="gender" id="AllG"><label for="AllG"> All </label><br>
-                      <input type="radio" name="gender" id="WomG"><label for="WomG"> Women's </label><br>
-                      <input type="radio" name="gender" id="MenG"><label for="MenG"> Men's </label>
+                      <div class="more" style="display:none;"><input type="radio" name="gender" id="AllG" value="all"><label for="AllG"> All </label><br>
+                      <input type="radio" name="gender" id="WomG" value="women"><label for="WomG"> Women's </label><br>
+                      <input type="radio" name="gender" id="MenG" value="men"><label for="MenG"> Men's </label>
                       </div>
                   </div>
                   <div>
                       <div class="less">Category</div>
-                      <div class="more" style="display:none;"><input type="radio" name="Category" id="ClCat"><label for="ClCat"> Одежда </label><br>
-                      <input type="radio" name="Category" id="ShCat"><label for="ShCat"> Обувь </label><br>
-                      <input type="radio" name="Category" id="BgCat"><label for="BgCat"> Сумки и аксессуары </label></div>
+                      <div class="more" style="display:none;"><input type="radio" name="category" id="ClCat" value="clothes"><label for="ClCat"> Одежда </label><br>
+                      <input type="radio" name="category" id="ShCat" value="shoes"><label for="ShCat"> Обувь </label><br>
+                      <input type="radio" name="category" id="BgCat" value="bags"><label for="BgCat"> Сумки и аксессуары </label></div>
                   </div>
                   <div>
                         <div class="less">Sale</div>
                         <div class="more" style="display:none;">
-                        <input type="radio" name="saleRadio" id="20per"><label for="20per"> 20% or more </label><br>
-                        <input type="radio" name="saleRadio" id="50per"><label for="50per"> 50% or more </label><br>
-                        <input type="radio" name="saleRadio" id="70per"><label for="70per"> 70% or more </label>
+                        <input type="radio" name="discount" id="20per" value="20"><label for="20per"> 20% or more </label><br>
+                        <input type="radio" name="discount" id="50per" value="50"><label for="50per"> 50% or more </label><br>
+                        <input type="radio" name="discount" id="70per" value="70"><label for="70per"> 70% or more </label>
                         </div>
                   </div>
                   <div>
                         <div class="less">Price</div>
-                        <div class="more" style="display:none;"><p>биба</p><p>боба</p><p>пук</p></div>
+                        <div class="more" style="display:none;"><div><label for="minprice">Min:</label> <input type="text" placeholder="0" name="minprice"></div><div><div><label for="minprice">Max:</label> <input type="text" placeholder="{{ maxcost[0] }}" name="maxprice"></div></div>
                   </div>
                   <div>
                         <div class="less">Brand</div>
-                        <div class="more" style="display:none;"><p>биба</p></div>
+                        <div class="more" style="display:none;">{% for brand in brands %}<input type="checkbox" id="{{brand[0]}}" name="brand" value="{{brand[0]}}"> <label for="{{ brand[0] }}"> {{brand[0]}} </label><br>{% endfor %}</div>
                   </div>
                   <div>
                         <div class="less">Store</div>
-                        <div class="more" style="display:none;"><p>биба</p></div>
+                        <div class="more" style="display:none;">{% for site in sites %}<input type="checkbox" id="{{site[0]}}" name="brand" value="{{site[0]}}"> <label for="{{ site[0] }}"> {{site[0]}} </label><br>{% endfor %}</div>
                   </div>
                 <div>
-                    <div align="center" class="less"><a href="#">Применить фильтр</a></div>
+                    <div align="center" class="less"><button type="submit">Применить фильтр</button></div>
                   </div>
+                {% if checksrch %}
+                 <input type="hidden" name="q" value="{{ arg }}" >
+                {% endif %}
+                </form>
                 </ul>
               </div>
               <!--end item holder-->

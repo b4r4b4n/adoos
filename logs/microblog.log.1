@@ -1,14 +1,4 @@
-2020-05-12 15:05:03,811 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2020-05-12 15:05:21,774 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2020-05-12 15:06:15,350 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2020-05-12 15:17:51,232 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2020-05-12 15:27:05,002 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2020-05-12 15:29:14,376 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2020-05-12 15:31:53,107 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2020-05-12 15:37:01,328 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2020-05-12 15:38:52,661 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2020-05-12 15:45:19,061 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2020-05-12 15:45:51,104 ERROR: Exception on /search/ [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
+2020-05-14 12:52:18,748 ERROR: Exception on /index [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -22,9 +12,46 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-TypeError: search() missing 1 required positional argument: 'srch'
-2020-05-12 15:46:54,697 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2020-05-12 15:47:09,334 ERROR: Exception on /search/srch [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
+  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 43, in index
+    return render_template('main.html', items=pagination_posts, pagination=pagination, paga=page, chkindex=chkindex, brands=brands)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\templating.py", line 134, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\loaders.py", line 125, in load
+    code = environment.compile(source, name, filename)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 591, in compile
+    self.handle_exception(exc_info, source_hint=source_hint)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Baraban\PycharmProjects\untitled2\app\templates\main.html", line 360, in template
+    {{ pagination.info }}
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 497, in _parse
+    return Parser(self, source, name, encode_filename(filename)).parse()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 901, in parse
+    result = nodes.Template(self.subparse(), lineno=1)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 199, in parse_for
+    body = self.parse_statements(('name:endfor', 'name:else'))
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 170, in parse_statements
+    self.fail_eof(end_tokens)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 104, in fail_eof
+    return self._fail_ut_eof(None, stack, lineno)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 90, in _fail_ut_eof
+    self.fail(' '.join(message), lineno)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 59, in fail
+    raise exc(msg, lineno, self.name, self.filename)
+jinja2.exceptions.TemplateSyntaxError: Unexpected end of template. Jinja was looking for the following tags: 'endfor' or 'else'. The innermost block that needs to be closed is 'for'.
+2020-05-14 12:52:20,754 ERROR: Exception on /index [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -38,76 +65,48 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-TypeError: search() missing 1 required positional argument: 'srch'
-2020-05-12 15:47:50,089 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2020-05-12 15:48:03,035 ERROR: Exception on /search/ASSID [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 43, in index
+    return render_template('main.html', items=pagination_posts, pagination=pagination, paga=page, chkindex=chkindex, brands=brands)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\templating.py", line 134, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\loaders.py", line 125, in load
+    code = environment.compile(source, name, filename)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 591, in compile
+    self.handle_exception(exc_info, source_hint=source_hint)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
     reraise(exc_type, exc_value, tb)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 123, in search
-    cursor.execute('SELECT * FROM ITEMS WHERE to_tsvector(brand) OR to_tsvector(nameitem) OR to_tsvector(typeitem) @@ plainto_tsquery(%s)', [srch])
-psycopg2.errors.DatatypeMismatch: argument of OR must be type boolean, not type tsvector
-LINE 1: SELECT * FROM ITEMS WHERE to_tsvector(brand) OR to_tsvector(...
-                                  ^
-
-2020-05-12 15:49:25,914 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2020-05-12 15:49:36,687 ERROR: Exception on /search/ [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-TypeError: search() missing 1 required positional argument: 'srch'
-2020-05-12 15:55:06,989 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2020-05-12 15:55:19,586 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2020-05-12 15:56:00,924 ERROR: Exception on /search/ [GET] [in C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Baraban\PycharmProjects\untitled2\app\main\routes.py", line 124, in search
-    cursor.execute('SELECT * FROM ITEMS WHERE to_tsvector(brand) OR to_tsvector(nameitem) OR to_tsvector(typeitem) @@ plainto_tsquery(%s)', [arg])
-psycopg2.errors.DatatypeMismatch: argument of OR must be type boolean, not type tsvector
-LINE 1: SELECT * FROM ITEMS WHERE to_tsvector(brand) OR to_tsvector(...
-                                  ^
-
-2020-05-12 16:00:26,539 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2020-05-12 16:01:23,921 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2020-05-12 16:02:32,200 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2020-05-12 16:03:56,358 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2020-05-12 16:04:33,522 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2020-05-12 16:09:50,253 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2020-05-12 16:10:28,117 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2020-05-12 16:14:03,462 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2020-05-12 16:15:09,966 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2020-05-12 16:16:07,897 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2020-05-12 16:17:11,670 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2020-05-12 16:23:59,111 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
-2020-05-12 16:24:15,703 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Baraban\PycharmProjects\untitled2\app\templates\main.html", line 360, in template
+    {{ pagination.info }}
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\environment.py", line 497, in _parse
+    return Parser(self, source, name, encode_filename(filename)).parse()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 901, in parse
+    result = nodes.Template(self.subparse(), lineno=1)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 199, in parse_for
+    body = self.parse_statements(('name:endfor', 'name:else'))
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 170, in parse_statements
+    self.fail_eof(end_tokens)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 104, in fail_eof
+    return self._fail_ut_eof(None, stack, lineno)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 90, in _fail_ut_eof
+    self.fail(' '.join(message), lineno)
+  File "C:\Users\Baraban\PycharmProjects\socnet\untitled2\lib\site-packages\jinja2\parser.py", line 59, in fail
+    raise exc(msg, lineno, self.name, self.filename)
+jinja2.exceptions.TemplateSyntaxError: Unexpected end of template. Jinja was looking for the following tags: 'endfor' or 'else'. The innermost block that needs to be closed is 'for'.
+2020-05-14 12:52:42,642 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-14 12:53:27,737 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-14 12:54:08,985 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-14 12:55:15,866 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-14 12:56:53,651 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]
+2020-05-14 12:59:10,705 INFO: Microblog startup [in C:\Users\Baraban\PycharmProjects\untitled2\app\__init__.py:72]

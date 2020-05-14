@@ -11,8 +11,8 @@ import psycopg2
 
 
 def conn():
-    conn = psycopg2.connect(dbname='d2kdscukj077tc', user='cgpgjldttlacbu',
-    password='12285c7849e06b03953c225161a11fa2e13347185714bf3e83a7e123940f1fd7',
-    host='ec2-34-200-116-132.compute-1.amazonaws.com',
+    conn = psycopg2.connect(dbname='d5ft4rhm6bmstn', user='wewmgokdtzuamc',
+    password='583ad885255b9e54e4b65c2cd410954faab0a0f146349d57787caddcfe29da50',
+    host='ec2-3-222-150-253.compute-1.amazonaws.com',
     port='5432')
     return conn
